@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alle Infos – Louis & Nele heiraten!</title>
+    <title>Alle Infos – Louis &amp; Nele heiraten!</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -19,7 +19,12 @@
             background: var(--background); color: var(--text);
             font-family: 'Montserrat', Arial, sans-serif;
         }
-        body { min-height: 100vh; }
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
         .navbar {
             position: fixed; top: 0; left: 0; width: 100vw;
             background: #fff; border-bottom: 1.5px solid var(--border);
@@ -39,8 +44,13 @@
         }
         @keyframes fadeIn { 0% { opacity: 0; transform: translateY(30px); } 100% { opacity: 1; transform: translateY(0); } }
         h1 {
-            font-family: 'Playfair Display', serif; font-size: 2em; color: var(--primary);
-            margin-bottom: 0.7em; letter-spacing: 1px; text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 2em;
+            color: var(--primary);
+            margin-bottom: 0.7em;
+            letter-spacing: 1px;
+            text-align: center;
         }
         .infos-list { margin: 0; padding: 0; list-style: none; }
         .infos-list li { margin-bottom: 1.2em; }
@@ -59,10 +69,22 @@
     <div class="container" style="margin-top:70px;">
         <h1>Alle Infos für den Hochzeitstag</h1>
         <ul class="infos-list">
-            <li><strong>Datum & Uhrzeit</strong> <span>TT.MM.JJJJ, ab 14:00 Uhr</span></li>
-            <li><strong>Ort</strong> <span>Hier kommt die Adresse der Location hin</span></li>
+            <li><strong>Datum</strong> <span>22.08.2026</span></li>
+            <li><strong>Ort</strong> <span>Gut Thurnsberg, Thurnsberg 17, 85402 Kranzberg</span>
+                <div class="map-embed" style="margin-top:1em;">
+                    <iframe src="https://www.google.com/maps?q=Gut+Thurnsberg,+Thurnsberg+17,+85402+Kranzberg&output=embed" width="100%" height="180" style="border:0; border-radius:10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </li>
             <li><strong>Dresscode</strong> <span>Schick & entspannt – kommt, wie ihr euch wohlfühlt!</span></li>
             <li><strong>Ablauf</strong> <span>14:00 Uhr: Trauung<br>15:30 Uhr: Sektempfang<br>18:00 Uhr: Dinner & Party</span></li>
+            <li><strong>Trauzeugen</strong>
+                <ul style="margin:0.5em 0 0 1.2em; padding:0; list-style: disc; color:#444; font-size:1em;">
+                    <li>Jona Roßmann</li>
+                    <li>Luisa Mackensen</li>
+                    <li>Jessica Vogel</li>
+                    <li>Arne Lehmann</li>
+                </ul>
+            </li>
         </ul>
         <div class="hint">Falls ihr Fragen habt, meldet euch gerne bei uns!</div>
     </div>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bilder – Louis & Nele heiraten!</title>
+    <title>Bilder – Louis &amp; Nele heiraten!</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -19,7 +19,12 @@
             background: var(--background); color: var(--text);
             font-family: 'Montserrat', Arial, sans-serif;
         }
-        body { min-height: 100vh; }
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
         .navbar {
             position: fixed; top: 0; left: 0; width: 100vw;
             background: #fff; border-bottom: 1.5px solid var(--border);
@@ -39,8 +44,13 @@
         }
         @keyframes fadeIn { 0% { opacity: 0; transform: translateY(30px); } 100% { opacity: 1; transform: translateY(0); } }
         h1 {
-            font-family: 'Playfair Display', serif; font-size: 2em; color: var(--primary);
-            margin-bottom: 0.7em; letter-spacing: 1px; text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 2em;
+            color: var(--primary);
+            margin-bottom: 0.7em;
+            letter-spacing: 1px;
+            text-align: center;
         }
         .bilder-grid {
             display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
