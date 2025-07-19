@@ -121,14 +121,21 @@
             fill: var(--confetti);
             opacity: 0.8;
         }
+        .headline-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 0.2em;
+        }
         h1 {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
             font-size: 2.1em;
             color: var(--primary);
-            margin-bottom: 0.2em;
             letter-spacing: 1px;
             text-align: center;
+            margin: 0;
         }
         h2 {
             font-family: 'Playfair Display', serif;
@@ -228,13 +235,11 @@
             }
         }
         .menu-toggle {
-            position: fixed;
-            top: 18px;
-            left: 18px;
             background: none;
             border: none;
             cursor: pointer;
             z-index: 2000;
+            margin-right: 0;
         }
         .menu-toggle svg {
             width: 28px;
@@ -272,7 +277,15 @@
             background: #f5f5f5;
         }
         @media (max-width: 600px) {
+            .headline-row {
+                flex-direction: row;
+                justify-content: flex-start;
+                gap: 10px;
+                margin-bottom: 0.2em;
+                padding-left: 8px;
+            }
             .menu-toggle {
+                position: fixed;
                 top: 8px;
                 left: 8px;
             }
@@ -283,13 +296,20 @@
             .container {
                 padding-top: 56px;
             }
+            h1 {
+                text-align: left;
+                font-size: 1.3em;
+            }
         }
     </style>
 </head>
 <body>
-    <button class="menu-toggle" id="menuToggle" aria-label="Menü öffnen">
-        <svg viewBox="0 0 32 32"><rect y="6" width="32" height="4" rx="2"/><rect y="14" width="32" height="4" rx="2"/><rect y="22" width="32" height="4" rx="2"/></svg>
-    </button>
+    <div class="headline-row">
+        <button class="menu-toggle" id="menuToggle" aria-label="Menü öffnen">
+            <svg viewBox="0 0 32 32"><rect y="6" width="32" height="4" rx="2"/><rect y="14" width="32" height="4" rx="2"/><rect y="22" width="32" height="4" rx="2"/></svg>
+        </button>
+        <h1>Wir heiraten!</h1>
+    </div>
     <div class="dropdown-menu" id="dropdownMenu">
         <a href="#">DeinToDo</a>
         <a href="infos.html">Alle Infos</a>
@@ -299,7 +319,7 @@
         <div class="confetti">
             <svg viewBox="0 0 64 64"><circle cx="12" cy="12" r="2"/><circle cx="52" cy="10" r="1.5"/><circle cx="32" cy="8" r="2.2"/><circle cx="20" cy="54" r="1.7"/><circle cx="44" cy="50" r="2"/><circle cx="56" cy="36" r="1.2"/><circle cx="10" cy="40" r="1.2"/><circle cx="32" cy="32" r="1.5"/></svg>
         </div>
-        <h1>Louis &amp; Nele heiraten!</h1>
+        <!-- h1 ist jetzt in .headline-row -->
         <div class="info">
             <h2>Wir freuen uns sehr, diesen besonderen Tag mit dir zu teilen!</h2>
             <span class="party-text">Und nach der Trauung wird richtig gefeiert – mach dich bereit für eine fette Party! 🥳</span>
