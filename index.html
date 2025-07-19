@@ -104,6 +104,7 @@
             border: 2px solid var(--gray);
             position: relative;
             animation: fadeIn 1.2s cubic-bezier(.39,.575,.565,1) both;
+            padding-top: 70px;
         }
         @keyframes fadeIn {
             0% { opacity: 0; transform: translateY(30px); }
@@ -227,7 +228,7 @@
             }
         }
         .menu-toggle {
-            position: absolute;
+            position: fixed;
             top: 18px;
             left: 18px;
             background: none;
@@ -272,12 +273,15 @@
         }
         @media (max-width: 600px) {
             .menu-toggle {
-                top: 12px;
-                left: 12px;
+                top: 8px;
+                left: 8px;
             }
             .dropdown-menu {
-                top: 44px;
-                left: 12px;
+                top: 38px;
+                left: 8px;
+            }
+            .container {
+                padding-top: 56px;
             }
         }
     </style>
