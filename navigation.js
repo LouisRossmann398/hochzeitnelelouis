@@ -7,7 +7,7 @@ function createNavigation() {
     const navigation = `
         <nav class="navbar">
             <ul class="nav-list">
-                <li><a href="index.html" ${currentPageClean === 'index.html' || currentPageClean === '' ? 'class="active"' : ''}>DeinToDo</a></li>
+                <li><a href="index.html" ${currentPageClean === 'index.html' || currentPageClean === '' ? 'class="active"' : ''}>Dein Todo</a></li>
                 <li><a href="infos.html" ${currentPageClean === 'infos.html' ? 'class="active"' : ''}>Infos</a></li>
                 <li><a href="bilder.html" ${currentPageClean === 'bilder.html' ? 'class="active"' : ''}>Bilder</a></li>
             </ul>

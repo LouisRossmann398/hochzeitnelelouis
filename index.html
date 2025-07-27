@@ -40,7 +40,7 @@
         }
         .main-container {
             background: #fff;
-            border-radius: 22px;
+            border-radius: 8px;
             box-shadow: var(--card-shadow);
             border: 2px solid var(--gray);
             animation: fadeIn 1.2s cubic-bezier(.39,.575,.565,1) both;
@@ -109,6 +109,20 @@
             flex-direction: column;
             gap: 1.5em;
             animation: fadeIn 1.8s 0.2s cubic-bezier(.39,.575,.565,1) both;
+        }
+        #optional-fields {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5em;
+            margin-top: 0.5em;
+        }
+        #optional-fields label {
+            margin-bottom: 0.8em;
+        }
+        #optional-fields input {
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 1.5em;
         }
         label {
             font-size: 1em;
@@ -226,17 +240,25 @@
                 <label for="status">Kommst du zur Hochzeit?</label>
                 <div class="status-options">
                     <label class="radio-label">
-                        <input type="radio" name="status" value="Ja" required>
+                        <input type="radio" name="status" value="Ja" required onchange="toggleOptionalFields()">
                         Ja, ich komme!
                     </label>
                     <label class="radio-label">
-                        <input type="radio" name="status" value="Nein" required>
+                        <input type="radio" name="status" value="Nein" required onchange="toggleOptionalFields()">
                         Nein, leider nicht
                     </label>
                 </div>
 
-                <label for="plusone">Falls du deinen Partner oder deine Partnerin mitbringen möchtest, kannst du hier den Namen eintragen (optional)</label>
-                <input type="text" id="plusone" name="plusone" placeholder="Name deines Partners/deiner Partnerin" autocomplete="off">
+                <div id="optional-fields" style="display: none;">
+                    <label for="plusone">Falls du deinen Partner oder deine Partnerin mitbringen möchtest, kannst du hier den Namen eintragen (optional)</label>
+                    <input type="text" id="plusone" name="plusone" placeholder="Name deines Partners/deiner Partnerin" autocomplete="off">
+
+                    <label for="allergies">Hast du Allergien oder Unverträglichkeiten beim Essen, die wir beachten sollen? (optional)</label>
+                    <input type="text" id="allergies" name="allergies" placeholder="z.B. Nüsse, Laktose, Gluten..." autocomplete="off">
+
+                    <label for="music">Falls du einen Musikwunsch für die Party am Abend hast, kannst du ihn hier eintragen (optional)</label>
+                    <input type="text" id="music" name="music" placeholder="Interpret - Titel" autocomplete="off">
+                </div>
 
                 <button type="submit">Antwort absenden</button>
             </form>
@@ -244,5 +266,18 @@
         </div>
     </div>
     <script src="navigation.js"></script>
+    <script>
+        function toggleOptionalFields() {
+            const statusJa = document.querySelector('input[name="status"][value="Ja"]');
+            const optionalFields = document.getElementById('optional-fields');
+            
+            if (statusJa.checked) {
+                optionalFields.style.display = 'block';
+                optionalFields.style.animation = 'fadeIn 0.5s ease-in-out';
+            } else {
+                optionalFields.style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html> 

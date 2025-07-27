@@ -3,6 +3,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = trim($_POST['name'] ?? '');
     $status = trim($_POST['status'] ?? '');
     $plusone = trim($_POST['plusone'] ?? '');
+    $allergies = trim($_POST['allergies'] ?? '');
+    $music = trim($_POST['music'] ?? '');
     $date = date('Y-m-d H:i:s');
 
     if ($name === '' || ($status !== 'Ja' && $status !== 'Nein')) {
@@ -10,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    $row = [$date, $name, $status, $plusone];
+    $row = [$date, $name, $status, $plusone, $allergies, $music];
     $file = fopen('responses.csv', 'a');
     fputcsv($file, $row);
     fclose($file);

@@ -81,6 +81,8 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
                 <th>Name</th>
                 <th>Status</th>
                 <th>Plus Eins</th>
+                <th>Allergien</th>
+                <th>Musikwunsch</th>
             </tr>
             <?php
             if (file_exists('responses.csv')) {
@@ -92,10 +94,12 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
                     echo '<td>' . htmlspecialchars($data[1] ?? '') . '</td>';
                     echo '<td>' . htmlspecialchars($data[2] ?? '') . '</td>';
                     echo '<td>' . htmlspecialchars($data[3] ?? '') . '</td>';
+                    echo '<td>' . htmlspecialchars($data[4] ?? '') . '</td>';
+                    echo '<td>' . htmlspecialchars($data[5] ?? '') . '</td>';
                     echo '</tr>';
                 }
             } else {
-                echo '<tr><td colspan="4">Noch keine Antworten.</td></tr>';
+                echo '<tr><td colspan="6">Noch keine Antworten.</td></tr>';
             }
             ?>
         </table>
