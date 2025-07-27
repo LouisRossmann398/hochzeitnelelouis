@@ -626,16 +626,19 @@
         document.addEventListener('DOMContentLoaded', function() {
             const hasSubmitted = localStorage.getItem('rsvpSubmitted');
             if (hasSubmitted) {
-                // Formular ausblenden und Nachricht anzeigen
+                // Formular und oberen Teil ausblenden
                 const form = document.querySelector('form');
+                const info = document.querySelector('.info');
                 const container = document.querySelector('.container');
                 
                 form.style.display = 'none';
+                info.style.display = 'none';
                 
                 const submittedMessage = document.createElement('div');
                 submittedMessage.innerHTML = `
                     <div style="text-align: center; padding: 2em; background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%); border-radius: 10px; color: #000; box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);">
                         <h3 style="margin-bottom: 1em;">Danke für deine Antwort! 🎉</h3>
+                        <p>Falls du deine Antwort ändern möchtest, melde dich direkt bei uns. Wir freuen uns auf dich!</p>
                     </div>
                 `;
                 
