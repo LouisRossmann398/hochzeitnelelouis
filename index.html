@@ -206,6 +206,9 @@
             height: 1.1em;
             margin-right: 0.5em;
         }
+        .hidden {
+            display: none;
+        }
         @media (max-width: 600px) {
             .page-wrapper {
                 max-width: 100vw;
@@ -233,7 +236,12 @@
                 <span class="party-text">Und nach der Trauung wird richtig gefeiert – mach dich bereit für eine fette Party! 🥳</span>
                 <p>Bitte gib uns Bescheid, ob du zur Hochzeit kommst.<br>Falls du deinen Partner oder deine Partnerin mitbringen möchtest, kannst du hier den Namen eintragen.</p>
             </div>
-            <form action="submit.php" method="POST">
+            <form name="rsvp-form" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                <input type="hidden" name="form-name" value="rsvp-form" />
+                <p class="hidden">
+                    <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                </p>
+                
                 <label for="name">Dein Name*</label>
                 <input type="text" id="name" name="name" required autocomplete="name">
 
