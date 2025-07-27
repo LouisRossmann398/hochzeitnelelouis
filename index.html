@@ -111,7 +111,7 @@
         #optional-fields {
             display: flex;
             flex-direction: column;
-            gap: 2.5em;
+            gap: 1.5em;
             margin-top: 0.5em;
             opacity: 0;
             max-height: 0;
@@ -124,12 +124,11 @@
             margin-top: 0.5em;
         }
         #optional-fields label {
-            margin-bottom: 0.8em;
+            margin-bottom: 0.3em;
         }
         #optional-fields input {
             width: 100%;
             box-sizing: border-box;
-            margin-bottom: 1.5em;
         }
         label {
             font-size: 1em;
@@ -338,10 +337,10 @@
         <div class="main-container">
         <div class="container">
         <h1>Wir heiraten!</h1>
-            <div class="info">
+        <br>
+        <div class="info">
                 <h2>Wir freuen uns sehr, diesen besonderen Tag mit dir zu teilen!</h2>
-                <span class="party-text">Und nach der Trauung wird richtig gefeiert – mach dich bereit für eine fette Party! 🥳</span>
-                <p>Bitte gib uns Bescheid, ob du zur Hochzeit kommst.<br>Falls du deinen Partner oder deine Partnerin mitbringen möchtest, kannst du hier den Namen eintragen.</p>
+                <p style="background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%); color: #000; padding: 1em; border-radius: 10px; box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3); margin-bottom: 1.5em;">Hey! Bitte sag uns Bescheid, ob du dabei bist! Falls du mit Familie oder Partner kommst, gib uns einfach Bescheid mit wievielen Personen und deren Namen.</p>
             </div>
             <form name="rsvp-form" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="showThankYouModal(event)">
                 <input type="hidden" name="form-name" value="rsvp-form" />
@@ -380,14 +379,13 @@
                         <option value="10">10 Personen</option>
                     </select>
 
-                    <div id="guestFields" class="question-spacing">
+                    <div id="guestFields">
                         <br>
                         <label for="guestNames">Namen aller Personen, die mitkommen:</label>
                         <div id="guestNamesContainer"></div>
                     </div>
 
-                    <div class="question-spacing">
-                        <br>
+                    <div>
                         <label for="allergies">Hast du/ihr Allergien oder Unverträglichkeiten beim Essen, die wir beachten sollen? (optional)</label>
                         <input type="text" id="allergies" name="allergies" placeholder="z.B. Nüsse, Laktose, Gluten..." autocomplete="off">
                     </div>
