@@ -572,13 +572,16 @@
                 return;
             }
             
+            // Namen für Personalisierung holen
+            const guestName = formData.get('name');
+            
             // Dynamischen Text basierend auf der Antwort setzen
             const modalMessage = document.getElementById('modalMessage');
             
             if (status === 'Ja') {
-                modalMessage.textContent = 'Falls du zugesagt hast, freuen wir uns riesig darauf, diesen besonderen Tag mit dir zu teilen!';
+                modalMessage.textContent = `Danke für deine Antwort. Wir freuen uns sehr über deine Rückmeldung, ${guestName}. Wir freuen uns riesig darauf, diesen besonderen Tag mit dir zu teilen!`;
             } else {
-                modalMessage.textContent = 'Falls du leider nicht kommen kannst, hoffen wir, dich beim nächsten Mal zu sehen!';
+                modalMessage.textContent = `Danke für deine Antwort! Schade dass es nicht klappt, ${guestName}, wir werden trotzdem an diesem Tag an dich denken.`;
             }
             
             // Netlify Forms API verwenden
