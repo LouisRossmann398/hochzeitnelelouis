@@ -49,6 +49,10 @@
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
+.page-wrapper {
+    padding-top: 85px;
+}
+
 @media (max-width: 600px) {
     .navbar {
         height: 55px;
@@ -63,5 +67,8 @@
     .nav-list li a {
         font-size: 0.95em;
         padding: 10px 14px;
+    }
+    .page-wrapper {
+        padding-top: 70px;
     }
 } 

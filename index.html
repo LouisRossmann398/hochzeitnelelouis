@@ -31,7 +31,7 @@
         }
         body {
             min-height: 100vh;
-            padding: 20px 0;
+            padding: 20px 0 100px 0;
         }
         .page-wrapper {
             max-width: 410px;
@@ -293,6 +293,9 @@
             h1 {
                 font-size: 1.3em;
             }
+            body {
+                padding: 20px 0 120px 0;
+            }
         }
     </style>
 </head>
@@ -312,7 +315,7 @@
                     <label>Don't fill this out if you're human: <input name="bot-field" /></label>
                 </div>
                 
-                <label for="name">Dein Name*</label>
+                <label for="name">Dein Name<span class="required">*</span></label>
                 <input type="text" id="name" name="name" required autocomplete="name">
 
                 <label for="status">Kommst du zur Hochzeit?<span class="required">*</span></label>
@@ -355,7 +358,7 @@
                         <input type="text" id="allergies" name="allergies" placeholder="z.B. Nüsse, Laktose, Gluten..." autocomplete="off">
                     </div>
 
-                    <div class="question-spacing">
+                    <div>
                         <label for="music">Falls du/ihr einen Musikwunsch für die Party am Abend habt, könnt ihr ihn hier eintragen (optional)</label>
                         <input type="text" id="music" name="music" placeholder="Interpret - Titel" autocomplete="off">
                     </div>
