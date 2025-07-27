@@ -693,10 +693,10 @@
                         <div style="text-align: left; line-height: 1.6;">
                             <p><strong>Name:</strong> ${submittedData.name || 'Nicht angegeben'}</p>
                             <p><strong>Kommst du zur Hochzeit?</strong> ${submittedData.status || 'Nicht angegeben'}</p>
-                            ${submittedData.guestCount ? `<p><strong>Anzahl Personen:</strong> ${submittedData.guestCount}</p>` : ''}
-                            ${submittedData.guestNames ? `<p><strong>Namen der Personen:</strong> ${submittedData.guestNames}</p>` : ''}
-                            ${submittedData.allergies ? `<p><strong>Allergien:</strong> ${submittedData.allergies}</p>` : ''}
-                            ${submittedData.music ? `<p><strong>Musikwunsch:</strong> ${submittedData.music}</p>` : ''}
+                            ${submittedData.guestCount ? `<p><strong>Wieviele Personen bringst du mit?</strong> ${submittedData.guestCount}</p>` : ''}
+                            ${submittedData.guestNames ? `<p><strong>Name Person 1:</strong> ${submittedData.guestNames}</p>` : ''}
+                            <p><strong>Allergien:</strong> ${submittedData.allergies || 'Nichts angegeben'}</p>
+                            <p><strong>Musikwunsch:</strong> ${submittedData.music || 'Nichts angegeben'}</p>
                         </div>
                     </div>
                 `;
