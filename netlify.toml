@@ -1,0 +1,16 @@
+[build]
+  publish = "."
+
+[[redirects]]
+  from = "/"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/thank-you.html"
+  to = "/thank-you.html"
+  status = 200
+
+[forms]
+  [forms.rsvp-form]
+    success_page = "/thank-you.html" 
