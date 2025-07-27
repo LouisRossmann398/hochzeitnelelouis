@@ -620,6 +620,7 @@
                     formDataObj.guestNames = guestNames.join(', ');
                 }
                 
+                console.log('Zu speichernde Daten:', formDataObj); // Debug
                 localStorage.setItem('rsvpData', JSON.stringify(formDataObj));
                 
                 // Modal anzeigen
@@ -651,6 +652,7 @@
                     formDataObj.guestNames = guestNames.join(', ');
                 }
                 
+                console.log('Zu speichernde Daten:', formDataObj); // Debug
                 localStorage.setItem('rsvpData', JSON.stringify(formDataObj));
                 
                 const modal = document.getElementById('thankYouModal');
@@ -678,6 +680,7 @@
                 
                 // Abgeschickte Informationen aus localStorage holen
                 const submittedData = JSON.parse(localStorage.getItem('rsvpData') || '{}');
+                console.log('Abgeschickte Daten:', submittedData); // Debug
                 
                 const submittedMessage = document.createElement('div');
                 submittedMessage.innerHTML = `
