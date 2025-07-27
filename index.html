@@ -113,6 +113,15 @@
             flex-direction: column;
             gap: 2.5em;
             margin-top: 0.5em;
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease-in-out;
+        }
+        #optional-fields.show {
+            opacity: 1;
+            max-height: 2000px;
+            margin-top: 0.5em;
         }
         #optional-fields label {
             margin-bottom: 0.8em;
@@ -312,6 +321,16 @@
         .required {
             color: #dc3545;
         }
+        #guestFields {
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease-in-out;
+        }
+        #guestFields.show {
+            opacity: 1;
+            max-height: 1000px;
+        }
     </style>
 </head>
 <body>
@@ -345,7 +364,7 @@
                     </label>
                 </div>
 
-                <div id="optional-fields" style="display: none;">
+                <div id="optional-fields">
                     <label for="guestCount">Mit wie vielen Personen kommst du? (Falls du alleine kommst, bitte hier nichts machen)</label>
                     <select id="guestCount" name="guestCount" onchange="updateGuestFields()" required>
                         <option value="">Bitte wählen...</option>
@@ -361,7 +380,7 @@
                         <option value="10">10 Personen</option>
                     </select>
 
-                    <div id="guestFields" class="question-spacing" style="display: none;">
+                    <div id="guestFields" class="question-spacing">
                         <br>
                         <label for="guestNames">Namen aller Personen, die mitkommen:</label>
                         <div id="guestNamesContainer"></div>
@@ -402,10 +421,9 @@
             const optionalFields = document.getElementById('optional-fields');
             
             if (statusJa.checked) {
-                optionalFields.style.display = 'block';
-                optionalFields.style.animation = 'fadeIn 0.5s ease-in-out';
+                optionalFields.classList.add('show');
             } else {
-                optionalFields.style.display = 'none';
+                optionalFields.classList.remove('show');
             }
         }
 
@@ -417,12 +435,12 @@
             const guestCount = guestCountSelect.value;
 
             if (guestCount === '') {
-                guestFieldsDiv.style.display = 'none';
+                guestFieldsDiv.classList.remove('show');
                 guestNamesContainer.innerHTML = ''; // Clear previous names
                 return;
             }
 
-            guestFieldsDiv.style.display = 'block';
+            guestFieldsDiv.classList.add('show');
             guestNamesContainer.innerHTML = ''; // Clear previous names
 
             for (let i = 1; i <= parseInt(guestCount); i++) {
