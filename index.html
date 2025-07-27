@@ -163,7 +163,7 @@
             border-radius: 10px;
             font-size: 1.1em;
             font-family: 'Montserrat', Arial, sans-serif;
-            font-weight: 500;
+            font-weight: 700;
             cursor: pointer;
             margin-top: 0.5em;
             box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
@@ -521,6 +521,13 @@
             // Verhindere das Standard-Formular-Verhalten
             event.preventDefault();
             
+            // Prüfen ob bereits abgeschickt wurde
+            const hasSubmitted = localStorage.getItem('rsvpSubmitted');
+            if (hasSubmitted) {
+                alert('Du hast bereits eine Antwort abgeschickt! Falls du deine Antwort ändern möchtest, kontaktiere uns bitte direkt.');
+                return;
+            }
+            
             // Alle Fehler-Styles zurücksetzen
             clearErrors();
             
@@ -590,6 +597,9 @@
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 body: new URLSearchParams(formData).toString()
             }).then(() => {
+                // Als abgeschickt markieren
+                localStorage.setItem('rsvpSubmitted', 'true');
+                
                 // Modal anzeigen
                 const modal = document.getElementById('thankYouModal');
                 modal.style.display = 'flex';
@@ -599,6 +609,8 @@
                 toggleOptionalFields();
             }).catch(() => {
                 // Fallback: Modal trotzdem anzeigen
+                localStorage.setItem('rsvpSubmitted', 'true');
+                
                 const modal = document.getElementById('thankYouModal');
                 modal.style.display = 'flex';
                 
@@ -607,6 +619,28 @@
                 toggleOptionalFields();
             });
         }
+        
+        // Prüfe beim Laden der Seite, ob bereits abgeschickt wurde
+        document.addEventListener('DOMContentLoaded', function() {
+            const hasSubmitted = localStorage.getItem('rsvpSubmitted');
+            if (hasSubmitted) {
+                // Formular ausblenden und Nachricht anzeigen
+                const form = document.querySelector('form');
+                const container = document.querySelector('.container');
+                
+                form.style.display = 'none';
+                
+                const submittedMessage = document.createElement('div');
+                submittedMessage.innerHTML = `
+                    <div style="text-align: center; padding: 2em; background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%); border-radius: 10px; color: #000; box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);">
+                        <h3 style="margin-bottom: 1em;">Danke für deine Antwort! 🎉</h3>
+                        <p>Du hast bereits eine Antwort abgeschickt. Falls du deine Antwort ändern möchtest, kontaktiere uns bitte direkt.</p>
+                    </div>
+                `;
+                
+                container.appendChild(submittedMessage);
+            }
+        });
     </script>
 </body>
 </html> 
