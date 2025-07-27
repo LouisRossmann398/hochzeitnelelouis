@@ -209,6 +209,57 @@
         .hidden {
             display: none;
         }
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        .modal-content {
+            background: #fff;
+            border-radius: 12px;
+            padding: 2.5em;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            animation: slideIn 0.4s ease-out;
+        }
+        .modal-content h2 {
+            color: var(--text);
+            margin-bottom: 1em;
+            font-size: 1.5em;
+        }
+        .modal-content p {
+            margin-bottom: 1em;
+            line-height: 1.6;
+        }
+        .modal-close {
+            background: #667eea;
+            color: #fff;
+            border: none;
+            padding: 0.8em 1.5em;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 1em;
+            transition: all 0.3s ease;
+        }
+        .modal-close:hover {
+            background: #5a6fd8;
+            transform: translateY(-2px);
+        }
+        @keyframes slideIn {
+            0% { opacity: 0; transform: translateY(-50px) scale(0.9); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
         @media (max-width: 600px) {
             .page-wrapper {
                 max-width: 100vw;
@@ -236,7 +287,7 @@
                 <span class="party-text">Und nach der Trauung wird richtig gefeiert – mach dich bereit für eine fette Party! 🥳</span>
                 <p>Bitte gib uns Bescheid, ob du zur Hochzeit kommst.<br>Falls du deinen Partner oder deine Partnerin mitbringen möchtest, kannst du hier den Namen eintragen.</p>
             </div>
-            <form name="rsvp-form" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <form name="rsvp-form" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="showThankYouModal(event)">
                 <input type="hidden" name="form-name" value="rsvp-form" />
                 <div class="hidden">
                     <label>Don't fill this out if you're human: <input name="bot-field" /></label>
@@ -273,6 +324,18 @@
         </div>
         </div>
     </div>
+    
+    <!-- Thank You Modal -->
+    <div id="thankYouModal" class="modal-overlay">
+        <div class="modal-content">
+            <h2>Danke für deine Antwort! 🎉</h2>
+            <p>Wir freuen uns sehr über deine Rückmeldung!</p>
+            <p>Falls du zugesagt hast, freuen wir uns riesig darauf, diesen besonderen Tag mit dir zu teilen!</p>
+            <p>Falls du leider nicht kommen kannst, hoffen wir, dich beim nächsten Mal zu sehen!</p>
+            <button class="modal-close" onclick="closeThankYouModal()">Schließen</button>
+        </div>
+    </div>
+    
     <script src="navigation.js"></script>
     <script>
         function toggleOptionalFields() {
@@ -286,6 +349,50 @@
                 optionalFields.style.display = 'none';
             }
         }
+        
+        function showThankYouModal(event) {
+            // Verhindere das Standard-Formular-Verhalten
+            event.preventDefault();
+            
+            // Formular-Daten sammeln und an Netlify senden
+            const form = event.target;
+            const formData = new FormData(form);
+            
+            // Netlify Forms API verwenden
+            fetch('/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams(formData).toString()
+            }).then(() => {
+                // Modal anzeigen
+                const modal = document.getElementById('thankYouModal');
+                modal.style.display = 'flex';
+                
+                // Formular zurücksetzen
+                form.reset();
+                toggleOptionalFields();
+            }).catch(() => {
+                // Fallback: Modal trotzdem anzeigen
+                const modal = document.getElementById('thankYouModal');
+                modal.style.display = 'flex';
+                
+                // Formular zurücksetzen
+                form.reset();
+                toggleOptionalFields();
+            });
+        }
+        
+        function closeThankYouModal() {
+            const modal = document.getElementById('thankYouModal');
+            modal.style.display = 'none';
+        }
+        
+        // Modal schließen bei Klick außerhalb
+        document.getElementById('thankYouModal').addEventListener('click', function(event) {
+            if (event.target === this) {
+                closeThankYouModal();
+            }
+        });
     </script>
 </body>
 </html> 
