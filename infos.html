@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alle Infos – Louis &amp; Nele heiraten!</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="navigation.css">
     <style>
         :root {
             --primary: #111;
@@ -23,93 +24,30 @@
         }
         body {
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            padding: 20px 0;
         }
-        .navbar {
-            position: sticky;
-            top: 0;
-            left: 0;
-            width: 100%;
+        .page-wrapper {
             max-width: 410px;
             margin: 0 auto;
-            background: #fff;
-            border-bottom: 2.5px solid #bbb;
-            z-index: 1000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 62px;
-            box-shadow: 0 4px 18px rgba(0,0,0,0.08);
-            font-size: 1.13em;
-            font-weight: 600;
-            letter-spacing: 0.5px;
+            width: 100%;
         }
-        .nav-list {
-            display: flex;
-            gap: 1.5em;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            overflow-x: auto;
-            white-space: nowrap;
-        }
-        .nav-list li a {
-            text-decoration: none;
-            color: #111;
-            font-weight: 600;
-            font-size: 1.08em;
-            padding: 10px 14px;
-            border-radius: 8px;
-            transition: background 0.15s, color 0.15s;
-        }
-        .nav-list li a.active, .nav-list li a:hover {
-            background: #f5f5f5;
-            color: #b48b6c;
-        }
-        @media (max-width: 600px) {
-            .navbar {
-                height: 48px;
-                font-size: 0.98em;
-                max-width: 100vw;
-            }
-            .container {
-                max-width: 100vw;
-                border-radius: 0;
-                margin: 54px 0 32px 0;
-                padding-left: 0;
-                padding-right: 0;
-            }
-            .nav-list {
-                gap: 0.3em;
-            }
-            .nav-list li a {
-                font-size: 0.97em;
-                padding: 7px 7px;
-            }
+        .main-container {
+            background: var(--accent);
+            border-radius: 22px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.07);
+            border: 2px solid var(--gray);
+            animation: fadeIn 1.2s cubic-bezier(.39,.575,.565,1) both;
         }
         .container {
             width: 100%;
             max-width: 410px;
-            background: var(--accent);
             padding: 38px 20px 34px 20px;
-            border-radius: 22px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.07);
-            margin: 54px auto 32px auto;
-            border: 2px solid var(--gray);
-            position: relative;
-            animation: fadeIn 1.2s cubic-bezier(.39,.575,.565,1) both;
-            padding-top: 70px;
+            margin: 0 auto;
+            box-sizing: border-box;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
         }
         @keyframes fadeIn { 0% { opacity: 0; transform: translateY(30px); } 100% { opacity: 1; transform: translateY(0); } }
-        .headline-row {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 16px;
-            margin-bottom: 0.2em;
-        }
         h1 {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
@@ -118,48 +56,6 @@
             letter-spacing: 1px;
             text-align: center;
             margin: 0;
-        }
-        .menu-toggle {
-            background: none;
-            border: none;
-            cursor: pointer;
-            z-index: 2000;
-            margin-right: 0;
-        }
-        .menu-toggle svg {
-            width: 28px;
-            height: 28px;
-            fill: #222;
-        }
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 54px;
-            left: 18px;
-            background: #fff;
-            border: 1.5px solid #eee;
-            border-radius: 10px;
-            box-shadow: 0 4px 18px rgba(0,0,0,0.08);
-            min-width: 150px;
-            padding: 0.5em 0;
-            z-index: 3000;
-        }
-        .dropdown-menu.open {
-            display: block;
-        }
-        .dropdown-menu a {
-            display: block;
-            padding: 0.7em 1.2em;
-            color: #222;
-            text-decoration: none;
-            font-size: 1em;
-            font-weight: 500;
-            border: none;
-            background: none;
-            transition: background 0.15s;
-        }
-        .dropdown-menu a:hover {
-            background: #f5f5f5;
         }
         .infos-list { margin: 0; padding: 0; list-style: none; }
         .infos-list li { margin-bottom: 1.2em; }
@@ -173,24 +69,26 @@
         @media (max-width: 600px) {
             .page-wrapper {
                 max-width: 100vw;
+                padding: 0 10px;
+            }
+            .main-container {
+                margin-left: 5px;
+                margin-right: 5px;
+            }
+            .container {
+                padding: 18px 2vw 18px 2vw;
+            }
+            h1 {
+                font-size: 1.3em;
             }
         }
     </style>
 </head>
 <body>
     <div class="page-wrapper">
-        <div class="headline-row">
-            <button class="menu-toggle" id="menuToggle" aria-label="Menü öffnen">
-                <svg viewBox="0 0 32 32"><rect y="6" width="32" height="4" rx="2"/><rect y="14" width="32" height="4" rx="2"/><rect y="22" width="32" height="4" rx="2"/></svg>
-            </button>
-            <h1>Alle Infos</h1>
-        </div>
-        <div class="dropdown-menu" id="dropdownMenu">
-            <a href="#">DeinToDo</a>
-            <a href="infos.html">Alle Infos</a>
-            <a href="bilder.html">Bilder</a>
-        </div>
+        <div class="main-container">
         <div class="container">
+            <h1>Alle Infos</h1>
             <h1>Alle Infos für den Hochzeitstag</h1>
             <ul class="infos-list">
                 <li><strong>Datum</strong> <span>22.08.2026</span></li>
@@ -212,17 +110,8 @@
             </ul>
             <div class="hint">Falls ihr Fragen habt, meldet euch gerne bei uns!</div>
         </div>
+        </div>
     </div>
-    <script>
-    const menuToggle = document.getElementById('menuToggle');
-    const dropdownMenu = document.getElementById('dropdownMenu');
-    document.addEventListener('click', function(e) {
-        if (menuToggle.contains(e.target)) {
-            dropdownMenu.classList.toggle('open');
-        } else if (!dropdownMenu.contains(e.target)) {
-            dropdownMenu.classList.remove('open');
-        }
-    });
-    </script>
+    <script src="navigation.js"></script>
 </body>
 </html> 
