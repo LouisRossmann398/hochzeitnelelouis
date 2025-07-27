@@ -364,8 +364,8 @@
                 </div>
 
                 <div id="optional-fields">
-                    <label for="guestCount">Mit wie vielen Personen kommst du? (Falls du alleine kommst, bitte hier nichts machen)</label>
-                    <select id="guestCount" name="guestCount" onchange="updateGuestFields()" required>
+                    <label for="guestCount">Mit wie vielen Personen kommst du? (Falls du alleine kommst, bitte hier nichts machen) (optional)</label>
+                    <select id="guestCount" name="guestCount" onchange="updateGuestFields()">
                         <option value="">Bitte wählen...</option>
                         <option value="1">1 Person</option>
                         <option value="2">2 Personen</option>
@@ -552,13 +552,10 @@
             // Wenn "Ja" ausgewählt ist, weitere Validierung
             const status = formData.get('status');
             if (status === 'Ja') {
-                // Guest Count validieren
+                // Guest Count ist jetzt optional, nur validieren wenn ausgefüllt
                 const guestCountSelect = document.getElementById('guestCount');
-                if (!guestCountSelect.value) {
-                    showError(guestCountSelect, 'Bitte wähle die Anzahl der Personen aus');
-                    hasErrors = true;
-                } else {
-                    // Namensfelder validieren
+                if (guestCountSelect.value) {
+                    // Namensfelder validieren nur wenn guestCount ausgefüllt ist
                     const guestCount = parseInt(guestCountSelect.value);
                     for (let i = 1; i <= guestCount; i++) {
                         const nameInput = document.querySelector(`input[name="guestName${i}"]`);
