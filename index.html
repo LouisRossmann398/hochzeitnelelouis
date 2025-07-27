@@ -128,6 +128,10 @@
             font-size: 1em;
             font-weight: 500;
             margin-bottom: 0.3em;
+            display: block;
+        }
+        .question-spacing {
+            margin-bottom: 2em;
         }
         input, select {
             padding: 1.1em 1.1em;
@@ -226,11 +230,12 @@
             background: #fff;
             border-radius: 12px;
             padding: 2.5em;
-            max-width: 400px;
+            max-width: 410px;
             width: 90%;
             text-align: center;
             box-shadow: 0 20px 40px rgba(0,0,0,0.2);
             animation: slideIn 0.4s ease-out;
+            margin: 0 auto;
         }
         .modal-content h2 {
             color: var(--text);
@@ -259,6 +264,20 @@
         @keyframes slideIn {
             0% { opacity: 0; transform: translateY(-50px) scale(0.9); }
             100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .error {
+            border: 2px solid #dc3545 !important;
+            box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25) !important;
+        }
+        .error-message {
+            color: #dc3545;
+            font-size: 0.85em;
+            margin-top: 0.3em;
+            display: none;
+            text-align: left;
+        }
+        .required {
+            color: #dc3545;
         }
         @media (max-width: 600px) {
             .page-wrapper {
@@ -296,7 +315,7 @@
                 <label for="name">Dein Name*</label>
                 <input type="text" id="name" name="name" required autocomplete="name">
 
-                <label for="status">Kommst du zur Hochzeit?</label>
+                <label for="status">Kommst du zur Hochzeit?<span class="required">*</span></label>
                 <div class="status-options">
                     <label class="radio-label">
                         <input type="radio" name="status" value="Ja" required onchange="toggleOptionalFields()">
@@ -309,14 +328,37 @@
                 </div>
 
                 <div id="optional-fields" style="display: none;">
-                    <label for="plusone">Falls du deinen Partner oder deine Partnerin mitbringen möchtest, kannst du hier den Namen eintragen (optional)</label>
-                    <input type="text" id="plusone" name="plusone" placeholder="Name deines Partners/deiner Partnerin" autocomplete="off">
+                    <label for="guestCount">Mit wie vielen Personen kommst du? (Falls du alleine kommst, bitte hier nichts machen)</label>
+                    <select id="guestCount" name="guestCount" onchange="updateGuestFields()" required>
+                        <option value="">Bitte wählen...</option>
+                        <option value="1">1 Person</option>
+                        <option value="2">2 Personen</option>
+                        <option value="3">3 Personen</option>
+                        <option value="4">4 Personen</option>
+                        <option value="5">5 Personen</option>
+                        <option value="6">6 Personen</option>
+                        <option value="7">7 Personen</option>
+                        <option value="8">8 Personen</option>
+                        <option value="9">9 Personen</option>
+                        <option value="10">10 Personen</option>
+                    </select>
 
-                    <label for="allergies">Hast du Allergien oder Unverträglichkeiten beim Essen, die wir beachten sollen? (optional)</label>
-                    <input type="text" id="allergies" name="allergies" placeholder="z.B. Nüsse, Laktose, Gluten..." autocomplete="off">
+                    <div id="guestFields" class="question-spacing" style="display: none;">
+                        <br>
+                        <label for="guestNames">Namen aller Personen, die mitkommen:</label>
+                        <div id="guestNamesContainer"></div>
+                    </div>
 
-                    <label for="music">Falls du einen Musikwunsch für die Party am Abend hast, kannst du ihn hier eintragen (optional)</label>
-                    <input type="text" id="music" name="music" placeholder="Interpret - Titel" autocomplete="off">
+                    <div class="question-spacing">
+                        <br>
+                        <label for="allergies">Hast du/ihr Allergien oder Unverträglichkeiten beim Essen, die wir beachten sollen? (optional)</label>
+                        <input type="text" id="allergies" name="allergies" placeholder="z.B. Nüsse, Laktose, Gluten..." autocomplete="off">
+                    </div>
+
+                    <div class="question-spacing">
+                        <label for="music">Falls du/ihr einen Musikwunsch für die Party am Abend habt, könnt ihr ihn hier eintragen (optional)</label>
+                        <input type="text" id="music" name="music" placeholder="Interpret - Titel" autocomplete="off">
+                    </div>
                 </div>
 
                 <button type="submit">Antwort absenden</button>
@@ -330,8 +372,7 @@
         <div class="modal-content">
             <h2>Danke für deine Antwort! 🎉</h2>
             <p>Wir freuen uns sehr über deine Rückmeldung!</p>
-            <p>Falls du zugesagt hast, freuen wir uns riesig darauf, diesen besonderen Tag mit dir zu teilen!</p>
-            <p>Falls du leider nicht kommen kannst, hoffen wir, dich beim nächsten Mal zu sehen!</p>
+            <p id="modalMessage"></p>
             <button class="modal-close" onclick="closeThankYouModal()">Schließen</button>
         </div>
     </div>
@@ -349,14 +390,165 @@
                 optionalFields.style.display = 'none';
             }
         }
+
+        function updateGuestFields() {
+            const guestCountSelect = document.getElementById('guestCount');
+            const guestFieldsDiv = document.getElementById('guestFields');
+            const guestNamesContainer = document.getElementById('guestNamesContainer');
+
+            const guestCount = guestCountSelect.value;
+
+            if (guestCount === '') {
+                guestFieldsDiv.style.display = 'none';
+                guestNamesContainer.innerHTML = ''; // Clear previous names
+                return;
+            }
+
+            guestFieldsDiv.style.display = 'block';
+            guestNamesContainer.innerHTML = ''; // Clear previous names
+
+            for (let i = 1; i <= parseInt(guestCount); i++) {
+                const nameInput = document.createElement('input');
+                nameInput.type = 'text';
+                nameInput.name = `guestName${i}`;
+                nameInput.placeholder = `Name Person ${i}`;
+                nameInput.autocomplete = 'off';
+                nameInput.required = true;
+                guestNamesContainer.appendChild(nameInput);
+            }
+        }
         
+        function showError(element, message) {
+            element.classList.add('error');
+            
+            // Prüfen, ob bereits eine Fehlermeldung existiert
+            let errorMessage = element.parentNode.querySelector('.error-message');
+            if (!errorMessage) {
+                // Neue Fehlermeldung erstellen
+                errorMessage = document.createElement('div');
+                errorMessage.className = 'error-message';
+                errorMessage.style.display = 'block';
+                // Fehlermeldung nach dem Element einfügen
+                element.parentNode.insertBefore(errorMessage, element.nextSibling);
+            }
+            errorMessage.textContent = message;
+        }
+        
+        function clearErrors() {
+            // Alle Fehler-Styles entfernen
+            document.querySelectorAll('.error').forEach(element => {
+                element.classList.remove('error');
+            });
+            
+            // Alle Fehlermeldungen entfernen
+            document.querySelectorAll('.error-message').forEach(element => {
+                element.remove();
+            });
+        }
+        
+        function closeThankYouModal() {
+            const modal = document.getElementById('thankYouModal');
+            modal.style.display = 'none';
+        }
+        
+        // Modal schließen bei Klick außerhalb
+        document.getElementById('thankYouModal').addEventListener('click', function(event) {
+            if (event.target === this) {
+                closeThankYouModal();
+            }
+        });
+        
+        // Fehler beim Tippen entfernen
+        document.addEventListener('input', function(event) {
+            if (event.target.classList.contains('error')) {
+                event.target.classList.remove('error');
+                const errorMessage = event.target.parentNode.querySelector('.error-message');
+                if (errorMessage) {
+                    errorMessage.remove();
+                }
+            }
+        });
+        
+        // Fehler bei Radio-Button-Auswahl entfernen
+        document.addEventListener('change', function(event) {
+            if (event.target.name === 'status' && event.target.checked) {
+                const statusOptions = document.querySelector('.status-options');
+                if (statusOptions.classList.contains('error')) {
+                    statusOptions.classList.remove('error');
+                    const errorMessage = statusOptions.parentNode.querySelector('.error-message');
+                    if (errorMessage) {
+                        errorMessage.remove();
+                    }
+                }
+            }
+        });
+
         function showThankYouModal(event) {
             // Verhindere das Standard-Formular-Verhalten
             event.preventDefault();
             
-            // Formular-Daten sammeln und an Netlify senden
+            // Alle Fehler-Styles zurücksetzen
+            clearErrors();
+            
+            // Formular-Daten sammeln
             const form = event.target;
             const formData = new FormData(form);
+            
+            // Validierung
+            let hasErrors = false;
+            
+            // Name validieren
+            const nameInput = document.getElementById('name');
+            if (!nameInput.value.trim()) {
+                showError(nameInput, 'Bitte gib deinen Namen ein');
+                hasErrors = true;
+            }
+            
+            // Status validieren
+            const statusInputs = document.querySelectorAll('input[name="status"]');
+            let statusSelected = false;
+            statusInputs.forEach(input => {
+                if (input.checked) statusSelected = true;
+            });
+            if (!statusSelected) {
+                showError(statusInputs[0].closest('.status-options'), 'Bitte wähle aus, ob du kommst oder nicht');
+                hasErrors = true;
+            }
+            
+            // Wenn "Ja" ausgewählt ist, weitere Validierung
+            const status = formData.get('status');
+            if (status === 'Ja') {
+                // Guest Count validieren
+                const guestCountSelect = document.getElementById('guestCount');
+                if (!guestCountSelect.value) {
+                    showError(guestCountSelect, 'Bitte wähle die Anzahl der Personen aus');
+                    hasErrors = true;
+                } else {
+                    // Namensfelder validieren
+                    const guestCount = parseInt(guestCountSelect.value);
+                    for (let i = 1; i <= guestCount; i++) {
+                        const nameInput = document.querySelector(`input[name="guestName${i}"]`);
+                        if (nameInput && !nameInput.value.trim()) {
+                            showError(nameInput, `Bitte gib den Namen für Person ${i} ein`);
+                            hasErrors = true;
+                        }
+                    }
+                }
+            }
+            
+            // Wenn Fehler vorhanden sind, nicht weiter
+            if (hasErrors) {
+                return;
+            }
+            
+            // Dynamischen Text basierend auf der Antwort setzen
+            const modalMessage = document.getElementById('modalMessage');
+            
+            if (status === 'Ja') {
+                modalMessage.textContent = 'Falls du zugesagt hast, freuen wir uns riesig darauf, diesen besonderen Tag mit dir zu teilen!';
+            } else {
+                modalMessage.textContent = 'Falls du leider nicht kommen kannst, hoffen wir, dich beim nächsten Mal zu sehen!';
+            }
             
             // Netlify Forms API verwenden
             fetch('/', {
@@ -381,18 +573,6 @@
                 toggleOptionalFields();
             });
         }
-        
-        function closeThankYouModal() {
-            const modal = document.getElementById('thankYouModal');
-            modal.style.display = 'none';
-        }
-        
-        // Modal schließen bei Klick außerhalb
-        document.getElementById('thankYouModal').addEventListener('click', function(event) {
-            if (event.target === this) {
-                closeThankYouModal();
-            }
-        });
     </script>
 </body>
 </html> 

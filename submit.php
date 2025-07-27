@@ -2,7 +2,7 @@
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = trim($_POST['name'] ?? '');
     $status = trim($_POST['status'] ?? '');
-    $plusone = trim($_POST['plusone'] ?? '');
+    $guestCount = trim($_POST['guestCount'] ?? '');
     $allergies = trim($_POST['allergies'] ?? '');
     $music = trim($_POST['music'] ?? '');
     $date = date('Y-m-d H:i:s');
@@ -12,7 +12,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    $row = [$date, $name, $status, $plusone, $allergies, $music];
+    // Sammle alle Gästennamen
+    $guestNames = [];
+    if ($status === 'Ja' && $guestCount !== '') {
+        for ($i = 1; $i <= intval($guestCount); $i++) {
+            $guestName = trim($_POST["guestName$i"] ?? '');
+            if ($guestName !== '') {
+                $guestNames[] = $guestName;
+            }
+        }
+    }
+    $guestNamesString = implode(', ', $guestNames);
+
+    $row = [$date, $name, $status, $guestCount, $guestNamesString, $allergies, $music];
     $file = fopen('responses.csv', 'a');
     fputcsv($file, $row);
     fclose($file);

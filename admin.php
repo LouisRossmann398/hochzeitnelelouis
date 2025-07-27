@@ -80,7 +80,8 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
                 <th>Datum</th>
                 <th>Name</th>
                 <th>Status</th>
-                <th>Plus Eins</th>
+                <th>Anzahl Personen</th>
+                <th>Gästennamen</th>
                 <th>Allergien</th>
                 <th>Musikwunsch</th>
             </tr>
@@ -96,10 +97,11 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
                     echo '<td>' . htmlspecialchars($data[3] ?? '') . '</td>';
                     echo '<td>' . htmlspecialchars($data[4] ?? '') . '</td>';
                     echo '<td>' . htmlspecialchars($data[5] ?? '') . '</td>';
+                    echo '<td>' . htmlspecialchars($data[6] ?? '') . '</td>';
                     echo '</tr>';
                 }
             } else {
-                echo '<tr><td colspan="6">Noch keine Antworten.</td></tr>';
+                echo '<tr><td colspan="7">Noch keine Antworten.</td></tr>';
             }
             ?>
         </table>
