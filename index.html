@@ -602,6 +602,26 @@
                 // Als abgeschickt markieren
                 localStorage.setItem('rsvpSubmitted', 'true');
                 
+                // Formulardaten für spätere Anzeige speichern
+                const formDataObj = {};
+                formData.forEach((value, key) => {
+                    formDataObj[key] = value;
+                });
+                
+                // Gästennamen zusammenfassen
+                const guestNames = [];
+                for (let i = 1; i <= 10; i++) {
+                    const guestName = formData.get(`guestName${i}`);
+                    if (guestName && guestName.trim()) {
+                        guestNames.push(guestName.trim());
+                    }
+                }
+                if (guestNames.length > 0) {
+                    formDataObj.guestNames = guestNames.join(', ');
+                }
+                
+                localStorage.setItem('rsvpData', JSON.stringify(formDataObj));
+                
                 // Modal anzeigen
                 const modal = document.getElementById('thankYouModal');
                 modal.style.display = 'flex';
@@ -612,6 +632,26 @@
             }).catch(() => {
                 // Fallback: Modal trotzdem anzeigen
                 localStorage.setItem('rsvpSubmitted', 'true');
+                
+                // Formulardaten für spätere Anzeige speichern
+                const formDataObj = {};
+                formData.forEach((value, key) => {
+                    formDataObj[key] = value;
+                });
+                
+                // Gästennamen zusammenfassen
+                const guestNames = [];
+                for (let i = 1; i <= 10; i++) {
+                    const guestName = formData.get(`guestName${i}`);
+                    if (guestName && guestName.trim()) {
+                        guestNames.push(guestName.trim());
+                    }
+                }
+                if (guestNames.length > 0) {
+                    formDataObj.guestNames = guestNames.join(', ');
+                }
+                
+                localStorage.setItem('rsvpData', JSON.stringify(formDataObj));
                 
                 const modal = document.getElementById('thankYouModal');
                 modal.style.display = 'flex';
@@ -629,16 +669,32 @@
                 // Formular und oberen Teil ausblenden
                 const form = document.querySelector('form');
                 const info = document.querySelector('.info');
+                const h1 = document.querySelector('h1');
                 const container = document.querySelector('.container');
                 
                 form.style.display = 'none';
                 info.style.display = 'none';
+                h1.style.display = 'none';
+                
+                // Abgeschickte Informationen aus localStorage holen
+                const submittedData = JSON.parse(localStorage.getItem('rsvpData') || '{}');
                 
                 const submittedMessage = document.createElement('div');
                 submittedMessage.innerHTML = `
-                    <div style="text-align: center; padding: 2em; background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%); border-radius: 10px; color: #000; box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);">
+                    <div style="text-align: center; padding: 2em; background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%); border-radius: 10px; color: #000; box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3); margin-bottom: 2em;">
                         <h3 style="margin-bottom: 1em;">Danke für deine Antwort! 🎉</h3>
                         <p>Falls du deine Antwort ändern möchtest, melde dich direkt bei uns. Wir freuen uns auf dich!</p>
+                    </div>
+                    <div style="background: #f8f9fa; border-radius: 10px; padding: 1.5em; border: 1px solid #e9ecef;">
+                        <h4 style="margin-bottom: 1em; color: #333;">Deine abgeschickten Informationen:</h4>
+                        <div style="text-align: left; line-height: 1.6;">
+                            <p><strong>Name:</strong> ${submittedData.name || 'Nicht angegeben'}</p>
+                            <p><strong>Kommst du zur Hochzeit?</strong> ${submittedData.status || 'Nicht angegeben'}</p>
+                            ${submittedData.guestCount ? `<p><strong>Anzahl Personen:</strong> ${submittedData.guestCount}</p>` : ''}
+                            ${submittedData.guestNames ? `<p><strong>Namen der Personen:</strong> ${submittedData.guestNames}</p>` : ''}
+                            ${submittedData.allergies ? `<p><strong>Allergien:</strong> ${submittedData.allergies}</p>` : ''}
+                            ${submittedData.music ? `<p><strong>Musikwunsch:</strong> ${submittedData.music}</p>` : ''}
+                        </div>
                     </div>
                 `;
                 
