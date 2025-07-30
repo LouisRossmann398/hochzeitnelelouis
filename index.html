@@ -320,6 +320,13 @@
         .required {
             color: #dc3545;
         }
+        label {
+            display: inline-block;
+        }
+        label + .required {
+            display: inline;
+            margin-left: 2px;
+        }
         #guestFields {
             opacity: 0;
             max-height: 0;
@@ -348,10 +355,10 @@
                     <label>Don't fill this out if you're human: <input name="bot-field" /></label>
                 </div>
                 
-                <label for="name" data-translate="nameLabel">Dein Name<span class="required" data-translate="required">*</span></label>
+                <label for="name" data-translate="nameLabel">Dein Name</label><span class="required" data-translate="required">*</span>
                 <input type="text" id="name" name="name" required autocomplete="name">
 
-                <label for="status" data-translate="statusLabel">Kommst du zur Hochzeit?<span class="required" data-translate="required">*</span></label>
+                <label for="status" data-translate="statusLabel">Kommst du zur Hochzeit?</label><span class="required" data-translate="required">*</span>
                 <div class="status-options">
                     <label class="radio-label">
                         <input type="radio" name="status" value="Ja" required onchange="toggleOptionalFields()">
