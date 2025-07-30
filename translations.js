@@ -237,29 +237,42 @@ function addLanguageSwitchCSS() {
     style.textContent = `
         .language-switch {
             position: fixed;
-            top: 20px;
+            bottom: 20px;
             right: 20px;
             z-index: 1000;
             background: #fff;
             border: 2px solid #ffd700;
-            border-radius: 25px;
-            padding: 8px 12px;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 0.9em;
             font-weight: 500;
             cursor: pointer;
-            box-shadow: 0 3px 10px rgba(255, 215, 0, 0.2);
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
             transition: all 0.3s ease;
         }
         .language-switch:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
         }
-        @media (max-width: 600px) {
+        .language-switch:active {
+            transform: translateY(0) scale(0.95);
+        }
+        @media (min-width: 768px) {
             .language-switch {
-                top: 10px;
-                right: 10px;
+                display: none;
+            }
+        }
+        @media (max-width: 767px) {
+            .language-switch {
+                bottom: 20px;
+                right: 20px;
+                width: 60px;
+                height: 60px;
                 font-size: 0.8em;
-                padding: 6px 10px;
             }
         }
     `;
