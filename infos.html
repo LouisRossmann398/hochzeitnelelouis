@@ -89,7 +89,17 @@
             <h1>Alle Infos für den Hochzeitstag</h1>
             <br>
             <ul class="infos-list">
-                <li><strong>Datum</strong> <span>22.08.2026</span></li>
+                <li><strong>Datum</strong> <span>22.08.2026</span>
+                    <div id="countdown" style="margin-top: 1em; text-align: center; background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%); border-radius: 10px; padding: 1em; box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);">
+                        <div style="font-size: 1.2em; font-weight: 600; margin-bottom: 0.5em; color: #333;">Countdown zur Hochzeit</div>
+                        <div id="countdown-timer" style="font-size: 1.5em; font-weight: 700; color: #333;">
+                            <span id="days">--</span> Tage, 
+                            <span id="hours">--</span> Stunden, 
+                            <span id="minutes">--</span> Minuten, 
+                            <span id="seconds">--</span> Sekunden
+                        </div>
+                    </div>
+                </li>
                 <li><strong>Ort</strong> <span>Gut Thurnsberg, Thurnsberg 17, 85402 Kranzberg</span>
                     <div class="map-embed" style="margin-top:1em;">
                         <iframe src="https://www.google.com/maps?q=Gut+Thurnsberg,+Thurnsberg+17,+85402+Kranzberg&output=embed" width="100%" height="180" style="border:0; border-radius:10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -106,10 +116,36 @@
                     </ul>
                 </li>
             </ul>
-            <div class="hint">Falls ihr Fragen habt, meldet euch gerne bei uns!</div>
         </div>
         </div>
     </div>
     <script src="navigation.js"></script>
+    <script>
+        // Countdown zur Hochzeit
+        function updateCountdown() {
+            const weddingDate = new Date('2026-08-22T14:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            if (distance < 0) {
+                document.getElementById('countdown-timer').innerHTML = '<span style="color: #28a745;">🎉 Die Hochzeit ist heute! 🎉</span>';
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+
+        // Countdown sofort starten und jede Sekunde aktualisieren
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
 </body>
 </html> 
