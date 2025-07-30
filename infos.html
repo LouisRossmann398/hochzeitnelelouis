@@ -89,16 +89,17 @@
             <h1>Alle Infos für den Hochzeitstag</h1>
             <br>
             <ul class="infos-list">
-                <li><strong>Datum</strong> <span>22.08.2026</span>
-                    <div id="countdown" style="margin-top: 1em; text-align: center; background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%); border-radius: 10px; padding: 1em; box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);">
-                        <div style="font-size: 1.2em; font-weight: 600; margin-bottom: 0.5em; color: #333;">Countdown zur Hochzeit</div>
-                        <div id="countdown-timer" style="font-size: 1.5em; font-weight: 700; color: #333;">
+                <li>
+                    <div id="countdown" style="margin-bottom: 1em; text-align: center; background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%); border-radius: 8px; padding: 0.7em; box-shadow: 0 3px 10px rgba(255, 215, 0, 0.3);">
+                        <div style="font-size: 0.9em; font-weight: 600; margin-bottom: 0.3em; color: #333;">Countdown zur Hochzeit</div>
+                        <div id="countdown-timer" style="font-size: 1.1em; font-weight: 700; color: #333;">
                             <span id="days">--</span> Tage, 
                             <span id="hours">--</span> Stunden, 
                             <span id="minutes">--</span> Minuten, 
                             <span id="seconds">--</span> Sekunden
                         </div>
                     </div>
+                    <strong>Datum</strong> <span>22.08.2026</span>
                 </li>
                 <li><strong>Ort</strong> <span>Gut Thurnsberg, Thurnsberg 17, 85402 Kranzberg</span>
                     <div class="map-embed" style="margin-top:1em;">
@@ -114,6 +115,37 @@
                         <li>Jessica Vogel - <a href="tel:+491792883838" style="text-decoration: none; color: #ffd700; font-weight: 500;">📞 +49 179 2883838</a></li>
                         <li>Arne Lehmann - <a href="tel:+4915142654031" style="text-decoration: none; color: #ffd700; font-weight: 500;">📞 +49 151 42654031</a></li>
                     </ul>
+                </li>
+                <li><strong>Wetter für die Hochzeit</strong>
+                    <div id="weather-widget" style="margin-top: 0.5em; text-align: center; background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%); border-radius: 8px; padding: 0.7em; box-shadow: 0 3px 10px rgba(255, 215, 0, 0.3);">
+                        <div id="weather-loading" style="font-size: 0.9em; color: #333;">Lade Wetterdaten...</div>
+                        <div id="weather-content" style="display: none;">
+                            <div style="font-size: 1.1em; font-weight: 600; margin-bottom: 0.3em; color: #333;">
+                                <span id="weather-temp">--</span>°C
+                            </div>
+                            <div style="font-size: 0.9em; color: #333;">
+                                <span id="weather-desc">--</span>
+                            </div>
+                        </div>
+                        <div id="weather-placeholder" style="display: none; font-size: 0.9em; color: #333;">
+                            🌤️ Wettervorhersage wird ab 15.08.2026 hier angezeigt
+                        </div>
+                    </div>
+                </li>
+                <li><strong>Übernachtungsmöglichkeiten</strong>
+                    <div style="margin-top: 0.5em;">
+                        <div style="background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%); border-radius: 8px; padding: 0.7em; box-shadow: 0 3px 10px rgba(255, 215, 0, 0.3);">
+                            <div style="font-weight: 600; margin-bottom: 0.3em; color: #333;">🏨 Hörger Biohotel Tafernwirtschaft</div>
+                            <div style="font-size: 0.9em; color: #333; margin-bottom: 0.3em;">
+                                📍 Hohenbercha 38, 85402 Kranzberg<br>
+                                📞 +49 8166 990980<br>
+                                🌐 <a href="http://www.hoerger-biohotel.de" target="_blank" style="color: #333; text-decoration: underline;">Website</a>
+                            </div>
+                            <div style="font-size: 0.8em; color: #666;">
+                                ⭐ Biohotel mit Tradition • 3,5 km von der Location
+                            </div>
+                        </div>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -146,6 +178,71 @@
         // Countdown sofort starten und jede Sekunde aktualisieren
         updateCountdown();
         setInterval(updateCountdown, 1000);
+
+        // Wetter-Widget
+        async function loadWeather() {
+            try {
+                const weddingDate = new Date('2026-08-22T14:00:00');
+                const oneWeekBefore = new Date('2026-08-15T00:00:00');
+                const now = new Date();
+                
+                // Prüfe ob wir bereits eine Woche vor der Hochzeit sind
+                if (now < oneWeekBefore) {
+                    // Zeige Platzhalter
+                    document.getElementById('weather-loading').style.display = 'none';
+                    document.getElementById('weather-content').style.display = 'none';
+                    document.getElementById('weather-placeholder').style.display = 'block';
+                    return;
+                }
+                
+                // Kranzberg Koordinaten (ungefähr)
+                const lat = 48.4;
+                const lon = 11.6;
+                const apiKey = 'YOUR_API_KEY'; // Hier müsstest du einen kostenlosen API-Key von OpenWeatherMap holen
+                
+                // Für Test-Zwecke verwende ich eine Mock-Response
+                const mockWeather = {
+                    temp: 24,
+                    description: 'Sonnig und warm - perfekt für eine Hochzeit!'
+                };
+                
+                // Simuliere API-Call
+                setTimeout(() => {
+                    document.getElementById('weather-loading').style.display = 'none';
+                    document.getElementById('weather-content').style.display = 'block';
+                    document.getElementById('weather-placeholder').style.display = 'none';
+                    document.getElementById('weather-temp').textContent = mockWeather.temp;
+                    document.getElementById('weather-desc').textContent = mockWeather.description;
+                }, 1000);
+                
+                /* 
+                // Echter API-Call (wenn API-Key vorhanden):
+                const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&lang=de`);
+                const data = await response.json();
+                
+                // Wetter für den Hochzeitstag (22.08.2026)
+                const weddingDayData = data.list.find(item => {
+                    const itemDate = new Date(item.dt * 1000);
+                    return itemDate.getDate() === 22 && itemDate.getMonth() === 7; // August ist Monat 7 (0-basiert)
+                });
+                
+                if (weddingDayData) {
+                    document.getElementById('weather-loading').style.display = 'none';
+                    document.getElementById('weather-content').style.display = 'block';
+                    document.getElementById('weather-placeholder').style.display = 'none';
+                    document.getElementById('weather-temp').textContent = Math.round(weddingDayData.main.temp);
+                    document.getElementById('weather-desc').textContent = weddingDayData.weather[0].description;
+                }
+                */
+                
+            } catch (error) {
+                console.error('Fehler beim Laden der Wetterdaten:', error);
+                document.getElementById('weather-loading').textContent = 'Wetterdaten nicht verfügbar';
+            }
+        }
+
+        // Wetter beim Laden der Seite abrufen
+        loadWeather();
     </script>
 </body>
 </html> 
