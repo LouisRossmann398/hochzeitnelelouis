@@ -1,0 +1,274 @@
+// Globale Übersetzungen für die Hochzeitswebsite
+let currentLanguage = 'de';
+
+const translations = {
+    de: {
+        // Navigation
+        navTodo: 'Dein Todo',
+        navInfos: 'Infos',
+        navBilder: 'Bilder',
+        
+        // Index/RSVP Seite
+        title: 'Wir heiraten!',
+        subtitle: 'Wir freuen uns sehr, diesen besonderen Tag mit dir zu teilen!',
+        rsvpInfo: 'Hey! Bitte sag uns Bescheid, ob du dabei bist! Falls du mit Familie oder Partner kommst, gib uns einfach Bescheid mit wievielen Personen und deren Namen.',
+        nameLabel: 'Dein Name',
+        statusLabel: 'Kommst du zur Hochzeit?',
+        statusYes: 'Ja, ich komme!',
+        statusNo: 'Nein, leider nicht',
+        guestCountLabel: 'Mit wie vielen Personen kommst du? (Falls du alleine kommst, bitte hier nichts machen) (optional)',
+        guestCountPlaceholder: 'Bitte wählen...',
+        guestNamesLabel: 'Namen aller Personen, die mitkommen:',
+        allergiesLabel: 'Hast du/ihr Allergien oder Unverträglichkeiten beim Essen, die wir beachten sollen? (optional)',
+        allergiesPlaceholder: 'z.B. Nüsse, Laktose, Gluten...',
+        musicLabel: 'Falls du/ihr einen Musikwunsch für die Party am Abend habt, könnt ihr ihn hier eintragen (optional)',
+        musicPlaceholder: 'Interpret - Titel',
+        submitButton: 'Antwort absenden',
+        thankYouTitle: 'Danke für deine Antwort! 🎉',
+        thankYouMessage: 'Wir freuen uns sehr über deine Rückmeldung!',
+        thankYouYes: 'Danke für deine Antwort. Wir freuen uns sehr über deine Rückmeldung, {name}. Wir freuen uns riesig darauf, diesen besonderen Tag mit dir zu teilen!',
+        thankYouNo: 'Danke für deine Antwort! Schade dass es nicht klappt, {name}, wir werden trotzdem an diesem Tag an dich denken.',
+        closeButton: 'Schließen',
+        alreadySubmitted: 'Du hast bereits eine Antwort abgeschickt! Falls du deine Antwort ändern möchtest, kontaktiere uns bitte direkt.',
+        submittedInfo: 'Danke für deine Antwort! 🎉',
+        submittedInfoSub: 'Falls du deine Antwort ändern möchtest, melde dich direkt bei uns. Wir freuen uns auf dich!',
+        submittedDetails: 'Deine abgeschickten Informationen:',
+        submittedName: 'Name:',
+        submittedStatus: 'Kommst du zur Hochzeit?',
+        submittedGuestCount: 'Wieviele Personen bringst du mit?',
+        submittedGuestNames: 'Namen:',
+        submittedAllergies: 'Allergien:',
+        submittedMusic: 'Musikwunsch:',
+        notProvided: 'Nicht angegeben',
+        nothingProvided: 'Nichts angegeben',
+        
+        // Infos Seite
+        infosTitle: 'Alle Infos für den Hochzeitstag',
+        countdownTitle: 'Countdown zur Hochzeit',
+        days: 'Tage',
+        hours: 'Stunden',
+        minutes: 'Minuten',
+        seconds: 'Sekunden',
+        dateLabel: 'Datum',
+        locationLabel: 'Ort',
+        routeText: 'Route',
+        dresscodeLabel: 'Dresscode',
+        dresscodeText: 'Gerne sommerlich und schick – kommt, wie ihr euch wohlfühlt!',
+        scheduleLabel: 'Ablauf',
+        arrivalText: 'Ankunft',
+        ceremonyText: 'Trauung',
+        receptionText: 'Sektempfang',
+        barnText: 'Einzug in die Tenne',
+        dinnerText: 'Abendessen',
+        partyText: 'Party',
+        witnessesLabel: 'Trauzeugen',
+        weatherLabel: 'Wetter für die Hochzeit',
+        weatherLoading: 'Lade Wetterdaten...',
+        weatherPlaceholder: '🌤️ Wettervorhersage wird ab 15.08.2026 hier angezeigt',
+        accommodationLabel: 'Übernachtungsmöglichkeiten',
+        hotelDescription: '⭐ Biohotel mit Tradition • 1,7 km von der Location',
+        
+        // Bilder Seite
+        bilderTitle: 'Unsere Geschichte in Bildern',
+        bilderSubtitle: 'Ein kleiner Einblick in unsere gemeinsame Zeit',
+        
+        // Fehlermeldungen
+        nameError: 'Bitte gib deinen Namen ein',
+        statusError: 'Bitte wähle aus, ob du kommst oder nicht',
+        guestNameError: 'Bitte gib den Namen für Person {number} ein',
+        required: '*'
+    },
+    en: {
+        // Navigation
+        navTodo: 'Your Todo',
+        navInfos: 'Info',
+        navBilder: 'Photos',
+        
+        // Index/RSVP Seite
+        title: 'We are getting married!',
+        subtitle: 'We are very excited to share this special day with you!',
+        rsvpInfo: 'Hey! Please let us know if you\'re coming! If you\'re coming with family or partner, just let us know how many people and their names.',
+        nameLabel: 'Your Name',
+        statusLabel: 'Are you coming to the wedding?',
+        statusYes: 'Yes, I\'m coming!',
+        statusNo: 'No, unfortunately not',
+        guestCountLabel: 'How many people are you bringing? (If you\'re coming alone, please leave this empty) (optional)',
+        guestCountPlaceholder: 'Please choose...',
+        guestNamesLabel: 'Names of all people coming:',
+        allergiesLabel: 'Do you/they have any food allergies or intolerances we should be aware of? (optional)',
+        allergiesPlaceholder: 'e.g. nuts, lactose, gluten...',
+        musicLabel: 'If you/they have a music request for the evening party, you can enter it here (optional)',
+        musicPlaceholder: 'Artist - Title',
+        submitButton: 'Send Response',
+        thankYouTitle: 'Thank you for your response! 🎉',
+        thankYouMessage: 'We are very happy about your feedback!',
+        thankYouYes: 'Thank you for your response. We are very happy about your feedback, {name}. We are really looking forward to sharing this special day with you!',
+        thankYouNo: 'Thank you for your response! Too bad it doesn\'t work out, {name}, we will still think of you on this day.',
+        closeButton: 'Close',
+        alreadySubmitted: 'You have already submitted a response! If you want to change your response, please contact us directly.',
+        submittedInfo: 'Thank you for your response! 🎉',
+        submittedInfoSub: 'If you want to change your response, contact us directly. We look forward to seeing you!',
+        submittedDetails: 'Your submitted information:',
+        submittedName: 'Name:',
+        submittedStatus: 'Are you coming to the wedding?',
+        submittedGuestCount: 'How many people are you bringing?',
+        submittedGuestNames: 'Names:',
+        submittedAllergies: 'Allergies:',
+        submittedMusic: 'Music request:',
+        notProvided: 'Not provided',
+        nothingProvided: 'Nothing provided',
+        
+        // Infos Seite
+        infosTitle: 'All Information for the Wedding Day',
+        countdownTitle: 'Countdown to the Wedding',
+        days: 'Days',
+        hours: 'Hours',
+        minutes: 'Minutes',
+        seconds: 'Seconds',
+        dateLabel: 'Date',
+        locationLabel: 'Location',
+        routeText: 'Route',
+        dresscodeLabel: 'Dress Code',
+        dresscodeText: 'Feel free to dress summerly and elegant – come as you feel comfortable!',
+        scheduleLabel: 'Schedule',
+        arrivalText: 'Arrival',
+        ceremonyText: 'Ceremony',
+        receptionText: 'Champagne Reception',
+        barnText: 'Entering the Barn',
+        dinnerText: 'Dinner',
+        partyText: 'Party',
+        witnessesLabel: 'Best Men & Maids of Honor',
+        weatherLabel: 'Weather for the Wedding',
+        weatherLoading: 'Loading weather data...',
+        weatherPlaceholder: '🌤️ Weather forecast will be displayed here from 15.08.2026',
+        accommodationLabel: 'Accommodation',
+        hotelDescription: '⭐ Bio hotel with tradition • 1.7 km from the venue',
+        
+        // Bilder Seite
+        bilderTitle: 'Our Story in Pictures',
+        bilderSubtitle: 'A small insight into our time together',
+        
+        // Fehlermeldungen
+        nameError: 'Please enter your name',
+        statusError: 'Please choose whether you are coming or not',
+        guestNameError: 'Please enter the name for person {number}',
+        required: '*'
+    }
+};
+
+// Sprach-Umschaltung Funktion
+function toggleLanguage() {
+    currentLanguage = currentLanguage === 'de' ? 'en' : 'de';
+    
+    // Button-Text ändern
+    const langDe = document.getElementById('lang-de');
+    const langEn = document.getElementById('lang-en');
+    if (langDe && langEn) {
+        langDe.style.display = currentLanguage === 'de' ? 'inline' : 'none';
+        langEn.style.display = currentLanguage === 'en' ? 'inline' : 'none';
+    }
+    
+    // Alle Texte übersetzen
+    translatePage();
+}
+
+// Haupt-Übersetzungsfunktion
+function translatePage() {
+    // Alle Elemente mit data-translate Attribut übersetzen
+    const elements = document.querySelectorAll('[data-translate]');
+    elements.forEach(element => {
+        const key = element.getAttribute('data-translate');
+        if (translations[currentLanguage][key]) {
+            let text = translations[currentLanguage][key];
+            
+            // Platzhalter ersetzen
+            if (element.hasAttribute('data-name')) {
+                text = text.replace('{name}', element.getAttribute('data-name'));
+            }
+            if (element.hasAttribute('data-number')) {
+                text = text.replace('{number}', element.getAttribute('data-number'));
+            }
+            
+            element.textContent = text;
+        }
+    });
+    
+    // Placeholder für Input-Felder übersetzen
+    const inputs = document.querySelectorAll('[data-translate-placeholder]');
+    inputs.forEach(input => {
+        const key = input.getAttribute('data-translate-placeholder');
+        if (translations[currentLanguage][key]) {
+            input.placeholder = translations[currentLanguage][key];
+        }
+    });
+    
+    // Optionen für Select-Felder übersetzen
+    const selects = document.querySelectorAll('[data-translate-options]');
+    selects.forEach(select => {
+        const optionsKey = select.getAttribute('data-translate-options');
+        const options = translations[currentLanguage][optionsKey];
+        if (options) {
+            select.innerHTML = '';
+            options.forEach(option => {
+                const optionElement = document.createElement('option');
+                optionElement.value = option.value;
+                optionElement.textContent = option.text;
+                select.appendChild(optionElement);
+            });
+        }
+    });
+}
+
+// Sprach-Switch Button erstellen
+function createLanguageSwitch() {
+    const switchButton = document.createElement('div');
+    switchButton.className = 'language-switch';
+    switchButton.onclick = toggleLanguage;
+    switchButton.innerHTML = `
+        <span id="lang-de">🇩🇪 DE</span>
+        <span id="lang-en" style="display: none;">🇺🇸 EN</span>
+    `;
+    document.body.appendChild(switchButton);
+}
+
+// CSS für Sprach-Switch
+function addLanguageSwitchCSS() {
+    const style = document.createElement('style');
+    style.textContent = `
+        .language-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: #fff;
+            border: 2px solid #ffd700;
+            border-radius: 25px;
+            padding: 8px 12px;
+            font-size: 0.9em;
+            font-weight: 500;
+            cursor: pointer;
+            box-shadow: 0 3px 10px rgba(255, 215, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        .language-switch:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
+        @media (max-width: 600px) {
+            .language-switch {
+                top: 10px;
+                right: 10px;
+                font-size: 0.8em;
+                padding: 6px 10px;
+            }
+        }
+    `;
+    document.head.appendChild(style);
+}
+
+// Initialisierung beim Laden der Seite
+document.addEventListener('DOMContentLoaded', function() {
+    addLanguageSwitchCSS();
+    createLanguageSwitch();
+    translatePage();
+}); 

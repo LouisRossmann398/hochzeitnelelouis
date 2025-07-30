@@ -336,11 +336,11 @@
     <div class="page-wrapper">
         <div class="main-container">
         <div class="container">
-        <h1>Wir heiraten!</h1>
+        <h1 data-translate="title">Wir heiraten!</h1>
         <br>
         <div class="info">
-                <h2>Wir freuen uns sehr, diesen besonderen Tag mit dir zu teilen!</h2>
-                <p style="background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%); color: #000; padding: 1em; border-radius: 10px; box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3); margin-bottom: 1.5em;">Hey! Bitte sag uns Bescheid, ob du dabei bist! Falls du mit Familie oder Partner kommst, gib uns einfach Bescheid mit wievielen Personen und deren Namen.</p>
+                <h2 data-translate="subtitle">Wir freuen uns sehr, diesen besonderen Tag mit dir zu teilen!</h2>
+                <p style="background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%); color: #000; padding: 1em; border-radius: 10px; box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3); margin-bottom: 1.5em;" data-translate="rsvpInfo">Hey! Bitte sag uns Bescheid, ob du dabei bist! Falls du mit Familie oder Partner kommst, gib uns einfach Bescheid mit wievielen Personen und deren Namen.</p>
             </div>
             <form name="rsvp-form" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="showThankYouModal(event)">
                 <input type="hidden" name="form-name" value="rsvp-form" />
@@ -348,25 +348,25 @@
                     <label>Don't fill this out if you're human: <input name="bot-field" /></label>
                 </div>
                 
-                <label for="name">Dein Name<span class="required">*</span></label>
+                <label for="name" data-translate="nameLabel">Dein Name</label><span class="required" data-translate="required">*</span>
                 <input type="text" id="name" name="name" required autocomplete="name">
 
-                <label for="status">Kommst du zur Hochzeit?<span class="required">*</span></label>
+                <label for="status" data-translate="statusLabel">Kommst du zur Hochzeit?</label><span class="required" data-translate="required">*</span>
                 <div class="status-options">
                     <label class="radio-label">
                         <input type="radio" name="status" value="Ja" required onchange="toggleOptionalFields()">
-                        Ja, ich komme!
+                        <span data-translate="statusYes">Ja, ich komme!</span>
                     </label>
                     <label class="radio-label">
                         <input type="radio" name="status" value="Nein" required onchange="toggleOptionalFields()">
-                        Nein, leider nicht
+                        <span data-translate="statusNo">Nein, leider nicht</span>
                     </label>
                 </div>
 
                 <div id="optional-fields">
-                    <label for="guestCount">Mit wie vielen Personen kommst du? (Falls du alleine kommst, bitte hier nichts machen) (optional)</label>
+                    <label for="guestCount" data-translate="guestCountLabel">Mit wie vielen Personen kommst du? (Falls du alleine kommst, bitte hier nichts machen) (optional)</label>
                     <select id="guestCount" name="guestCount" onchange="updateGuestFields()">
-                        <option value="">Bitte wählen...</option>
+                        <option value="" data-translate="guestCountPlaceholder">Bitte wählen...</option>
                         <option value="1">1 Person</option>
                         <option value="2">2 Personen</option>
                         <option value="3">3 Personen</option>
@@ -381,22 +381,22 @@
 
                     <div id="guestFields">
                         <br>
-                        <label for="guestNames">Namen aller Personen, die mitkommen:</label>
+                        <label for="guestNames" data-translate="guestNamesLabel">Namen aller Personen, die mitkommen:</label>
                         <div id="guestNamesContainer"></div>
                     </div>
 
                     <div>
-                        <label for="allergies">Hast du/ihr Allergien oder Unverträglichkeiten beim Essen, die wir beachten sollen? (optional)</label>
-                        <input type="text" id="allergies" name="allergies" placeholder="z.B. Nüsse, Laktose, Gluten..." autocomplete="off">
+                        <label for="allergies" data-translate="allergiesLabel">Hast du/ihr Allergien oder Unverträglichkeiten beim Essen, die wir beachten sollen? (optional)</label>
+                        <input type="text" id="allergies" name="allergies" data-translate-placeholder="allergiesPlaceholder" placeholder="z.B. Nüsse, Laktose, Gluten..." autocomplete="off">
                     </div>
 
                     <div>
-                        <label for="music">Falls du/ihr einen Musikwunsch für die Party am Abend habt, könnt ihr ihn hier eintragen (optional)</label>
-                        <input type="text" id="music" name="music" placeholder="Interpret - Titel" autocomplete="off">
+                        <label for="music" data-translate="musicLabel">Falls du/ihr einen Musikwunsch für die Party am Abend habt, könnt ihr ihn hier eintragen (optional)</label>
+                        <input type="text" id="music" name="music" data-translate-placeholder="musicPlaceholder" placeholder="Interpret - Titel" autocomplete="off">
                     </div>
                 </div>
 
-                <button type="submit">Antwort absenden</button>
+                <button type="submit" data-translate="submitButton">Antwort absenden</button>
             </form>
         </div>
         </div>
@@ -413,6 +413,7 @@
     </div>
     
     <script src="navigation.js"></script>
+    <script src="translations.js"></script>
     <script>
         function toggleOptionalFields() {
             const statusJa = document.querySelector('input[name="status"][value="Ja"]');

@@ -65,6 +65,25 @@
             margin: 0 auto;
             width: 100%;
         }
+        .language-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: #fff;
+            border: 2px solid #ffd700;
+            border-radius: 25px;
+            padding: 8px 12px;
+            font-size: 0.9em;
+            font-weight: 500;
+            cursor: pointer;
+            box-shadow: 0 3px 10px rgba(255, 215, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        .language-switch:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
         @media (max-width: 600px) {
             .page-wrapper {
                 max-width: 100vw;
@@ -79,6 +98,12 @@
             h1 {
                 font-size: 1.3em;
             }
+            .language-switch {
+                top: 10px;
+                right: 10px;
+                font-size: 0.8em;
+                padding: 6px 10px;
+            }
         }
     </style>
 </head>
@@ -86,33 +111,33 @@
     <div class="page-wrapper">
         <div class="main-container">
         <div class="container">
-            <h1>Alle Infos für den Hochzeitstag</h1>
+            <h1 data-translate="infosTitle">Alle Infos für den Hochzeitstag</h1>
             <br>
             <ul class="infos-list">
                 <li>
                     <div id="countdown" style="margin-bottom: 1em; text-align: center; background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%); border-radius: 8px; padding: 0.7em; box-shadow: 0 3px 10px rgba(255, 215, 0, 0.3);">
-                        <div style="font-size: 0.9em; font-weight: 600; margin-bottom: 0.3em; color: #333;">Countdown zur Hochzeit</div>
+                        <div style="font-size: 0.9em; font-weight: 600; margin-bottom: 0.3em; color: #333;" data-translate="countdownTitle">Countdown zur Hochzeit</div>
                         <div id="countdown-timer" style="font-size: 1.1em; font-weight: 700; color: #333;">
-                            <span id="days">--</span> Tage, 
-                            <span id="hours">--</span> Stunden, 
-                            <span id="minutes">--</span> Minuten, 
-                            <span id="seconds">--</span> Sekunden
+                            <span id="days">--</span> <span data-translate="days">Tage</span>, 
+                            <span id="hours">--</span> <span data-translate="hours">Stunden</span>, 
+                            <span id="minutes">--</span> <span data-translate="minutes">Minuten</span>, 
+                            <span id="seconds">--</span> <span data-translate="seconds">Sekunden</span>
                         </div>
                     </div>
-                    <strong>Datum</strong> <span>22.08.2026</span>
+                    <strong data-translate="dateLabel">Datum</strong> <span>22.08.2026</span>
                 </li>
-                <li><strong>Ort</strong> <span>Gut Thurnsberg, Thurnsberg 17, 85402 Kranzberg</span>
+                <li><strong data-translate="locationLabel">Ort</strong> <span>Gut Thurnsberg, Thurnsberg 17, 85402 Kranzberg</span>
                     <div style="margin-top: 0.5em;">
-                        <a href="https://www.google.com/maps/dir//Gut+Thurnsberg,+Thurnsberg+17,+85402+Kranzberg" target="_blank" style="display: inline-block; background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%); color: #333; text-decoration: none; padding: 0.5em 1em; border-radius: 8px; font-weight: 500; box-shadow: 0 3px 10px rgba(255, 215, 0, 0.3); transition: all 0.3s ease;">
-                            🗺️ Route zu Gut Thurnsberg
+                        <a href="https://www.google.com/maps/dir//Gut+Thurnsberg,+Thurnsberg+17,+85402+Kranzberg" target="_blank" style="display: inline-block; background: #fff; color: #333; text-decoration: none; padding: 0.5em 1em; border-radius: 8px; font-weight: 500; border: 2px solid #ffd700; box-shadow: 0 3px 10px rgba(255, 215, 0, 0.2); transition: all 0.3s ease;">
+                            ➡️ <span data-translate="routeText">Route</span>
                         </a>
                     </div>
                     <div class="map-embed" style="margin-top:1em;">
                         <iframe src="https://www.google.com/maps?q=Gut+Thurnsberg,+Thurnsberg+17,+85402+Kranzberg&output=embed" width="100%" height="180" style="border:0; border-radius:10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </li>
-                <li><strong>Dresscode</strong> <span>Gerne sommerlich und schick – kommt, wie ihr euch wohlfühlt!</span></li>
-                <li><strong>Ablauf</strong> 
+                <li><strong data-translate="dresscodeLabel">Dresscode</strong> <span data-translate="dresscodeText">Gerne sommerlich und schick – kommt, wie ihr euch wohlfühlt!</span></li>
+                <li><strong data-translate="scheduleLabel">Ablauf</strong> 
                     <div style="margin-top: 0.5em;">
                         <div style="position: relative; padding-left: 20px;">
                             <!-- Timeline Line -->
@@ -123,7 +148,7 @@
                                 <div style="position: absolute; left: -15px; top: 5px; width: 12px; height: 12px; background: #ffd700; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 2px 4px rgba(255, 215, 0, 0.3);"></div>
                                 <div style="margin-left: 10px;">
                                     <div style="font-weight: 600; color: #333; font-size: 0.95em;">14:00 Uhr</div>
-                                    <div style="color: #666; font-size: 0.85em;">Ankunft</div>
+                                    <div style="color: #666; font-size: 0.85em;" data-translate="arrivalText">Ankunft</div>
                                 </div>
                             </div>
                             
@@ -131,7 +156,7 @@
                                 <div style="position: absolute; left: -15px; top: 5px; width: 12px; height: 12px; background: #ffd700; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 2px 4px rgba(255, 215, 0, 0.3);"></div>
                                 <div style="margin-left: 10px;">
                                     <div style="font-weight: 600; color: #333; font-size: 0.95em;">14:30 Uhr</div>
-                                    <div style="color: #666; font-size: 0.85em;">Trauung</div>
+                                    <div style="color: #666; font-size: 0.85em;" data-translate="ceremonyText">Trauung</div>
                                 </div>
                             </div>
                             
@@ -139,7 +164,7 @@
                                 <div style="position: absolute; left: -15px; top: 5px; width: 12px; height: 12px; background: #ffd700; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 2px 4px rgba(255, 215, 0, 0.3);"></div>
                                 <div style="margin-left: 10px;">
                                     <div style="font-weight: 600; color: #333; font-size: 0.95em;">15:00 Uhr</div>
-                                    <div style="color: #666; font-size: 0.85em;">Sektempfang</div>
+                                    <div style="color: #666; font-size: 0.85em;" data-translate="receptionText">Sektempfang</div>
                                 </div>
                             </div>
                             
@@ -147,7 +172,7 @@
                                 <div style="position: absolute; left: -15px; top: 5px; width: 12px; height: 12px; background: #ffd700; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 2px 4px rgba(255, 215, 0, 0.3);"></div>
                                 <div style="margin-left: 10px;">
                                     <div style="font-weight: 600; color: #333; font-size: 0.95em;">18:00 Uhr</div>
-                                    <div style="color: #666; font-size: 0.85em;">Einzug in die Tenne</div>
+                                    <div style="color: #666; font-size: 0.85em;" data-translate="barnText">Einzug in die Tenne</div>
                                 </div>
                             </div>
                             
@@ -155,7 +180,7 @@
                                 <div style="position: absolute; left: -15px; top: 5px; width: 12px; height: 12px; background: #ffd700; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 2px 4px rgba(255, 215, 0, 0.3);"></div>
                                 <div style="margin-left: 10px;">
                                     <div style="font-weight: 600; color: #333; font-size: 0.95em;">18:30 Uhr</div>
-                                    <div style="color: #666; font-size: 0.85em;">Abendessen</div>
+                                    <div style="color: #666; font-size: 0.85em;" data-translate="dinnerText">Abendessen</div>
                                 </div>
                             </div>
                             
@@ -163,13 +188,13 @@
                                 <div style="position: absolute; left: -15px; top: 5px; width: 12px; height: 12px; background: #ffd700; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 2px 4px rgba(255, 215, 0, 0.3);"></div>
                                 <div style="margin-left: 10px;">
                                     <div style="font-weight: 600; color: #333; font-size: 0.95em;">20:30 Uhr</div>
-                                    <div style="color: #666; font-size: 0.85em;">Party</div>
+                                    <div style="color: #666; font-size: 0.85em;" data-translate="partyText">Party</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </li>
-                <li><strong>Trauzeugen</strong>
+                <li><strong data-translate="witnessesLabel">Trauzeugen</strong>
                     <ul style="margin:0.5em 0 0 1.2em; padding:0; list-style: disc; color:#444; font-size:1em;">
                         <li>Jona Roßmann - <a href="tel:+4915737810233" style="text-decoration: none; color: #ffd700; font-weight: 500;">📞 +49 157 37810233</a></li>
                         <li>Luisa Mackensen - <a href="tel:+4917678915729" style="text-decoration: none; color: #ffd700; font-weight: 500;">📞 +49 176 78915729</a></li>
@@ -177,9 +202,9 @@
                         <li>Arne Lehmann - <a href="tel:+4915142654031" style="text-decoration: none; color: #ffd700; font-weight: 500;">📞 +49 151 42654031</a></li>
                     </ul>
                 </li>
-                <li><strong>Wetter für die Hochzeit</strong>
+                <li><strong data-translate="weatherLabel">Wetter für die Hochzeit</strong>
                     <div id="weather-widget" style="margin-top: 0.5em; text-align: center; background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%); border-radius: 8px; padding: 0.7em; box-shadow: 0 3px 10px rgba(255, 215, 0, 0.3);">
-                        <div id="weather-loading" style="font-size: 0.9em; color: #333;">Lade Wetterdaten...</div>
+                        <div id="weather-loading" style="font-size: 0.9em; color: #333;" data-translate="weatherLoading">Lade Wetterdaten...</div>
                         <div id="weather-content" style="display: none;">
                             <div style="font-size: 1.1em; font-weight: 600; margin-bottom: 0.3em; color: #333;">
                                 <span id="weather-temp">--</span>°C
@@ -188,12 +213,10 @@
                                 <span id="weather-desc">--</span>
                             </div>
                         </div>
-                        <div id="weather-placeholder" style="display: none; font-size: 0.9em; color: #333;">
-                            🌤️ Wettervorhersage wird ab 15.08.2026 hier angezeigt
-                        </div>
+                        <div id="weather-placeholder" style="display: none; font-size: 0.9em; color: #333;" data-translate="weatherPlaceholder">🌤️ Wettervorhersage wird ab 15.08.2026 hier angezeigt</div>
                     </div>
                 </li>
-                <li><strong>Übernachtungsmöglichkeiten</strong>
+                <li><strong data-translate="accommodationLabel">Übernachtungsmöglichkeiten</strong>
                     <div style="margin-top: 0.5em;">
                         <div style="background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%); border-radius: 8px; padding: 0.7em; box-shadow: 0 3px 10px rgba(255, 215, 0, 0.3);">
                             <div style="font-weight: 600; margin-bottom: 0.3em; color: #333;">🏨 Hörger Biohotel Tafernwirtschaft</div>
@@ -202,9 +225,7 @@
                                 📞 +49 8166 990980<br>
                                 🌐 <a href="http://www.hoerger-biohotel.de" target="_blank" style="color: #333; text-decoration: underline;">Website</a>
                             </div>
-                            <div style="font-size: 0.8em; color: #666;">
-                                ⭐ Biohotel mit Tradition • 1,7 km von der Location
-                            </div>
+                            <div style="font-size: 0.8em; color: #666;" data-translate="hotelDescription">⭐ Biohotel mit Tradition • 1,7 km von der Location</div>
                         </div>
                     </div>
                 </li>
@@ -213,6 +234,7 @@
         </div>
     </div>
     <script src="navigation.js"></script>
+    <script src="translations.js"></script>
     <script>
         // Countdown zur Hochzeit
         function updateCountdown() {
