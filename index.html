@@ -4,29 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Louis &amp; Nele heiraten!</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="navigation.css">
     <style>
         :root {
-            --primary: #111;
+            --primary: #000;
             --accent: #fff;
             --background: #fff;
-            --text: #111;
-            --border: #e0e0e0;
+            --text: #000;
+            --border: #000;
             --gray: #f5f5f5;
-            --gradient-bg: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            --card-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            --hover-shadow: 0 15px 40px rgba(0,0,0,0.12);
-            --accent-color: #6c757d;
         }
         html, body {
             margin: 0;
             padding: 0;
             background: var(--background);
             color: var(--text);
-            font-family: 'Montserrat', Arial, sans-serif;
+            font-family: 'Crimson Text', serif;
             max-width: 100vw;
             overflow-x: hidden;
+            line-height: 1.6;
         }
         body {
             padding: 20px 0 100px 0;
@@ -37,16 +34,14 @@
             width: 100%;
         }
         .main-container {
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: var(--card-shadow);
-            border: 2px solid var(--gray);
+            background: var(--accent);
+            border: 1px solid var(--border);
             animation: fadeIn 1.2s cubic-bezier(.39,.575,.565,1) both;
         }
         .container {
             width: 100%;
             max-width: 410px;
-            padding: 38px 20px 34px 20px;
+            padding: 40px 30px;
             margin: 0 auto;
             box-sizing: border-box;
             overflow-wrap: break-word;
@@ -56,200 +51,97 @@
             0% { opacity: 0; transform: translateY(30px); }
             100% { opacity: 1; transform: translateY(0); }
         }
-        .headline-row {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 16px;
-            margin-bottom: 0.2em;
-        }
         h1 {
-            font-family: 'Montserrat', Arial, sans-serif;
-            font-weight: 700;
-            font-size: 2.1em;
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+            font-size: 2.5em;
             color: var(--text);
-            letter-spacing: 1px;
             text-align: center;
-            margin: 0;
+            margin: 0 0 20px 0;
+            letter-spacing: 1px;
         }
         h2 {
-            font-family: 'Montserrat', Arial, sans-serif;
+            font-family: 'Crimson Text', serif;
             font-size: 1.1em;
             color: var(--text);
-            font-weight: 700;
-            margin-top: 0;
-            margin-bottom: 1.2em;
+            font-weight: 400;
+            margin: 0 0 30px 0;
             text-align: center;
+            font-style: italic;
         }
         .info {
             text-align: center;
-            margin-bottom: 2.2em;
+            margin-bottom: 40px;
         }
-        .party-text {
-            font-size: 1.05em;
-            color: #000;
-            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
-            border-radius: 8px;
-            padding: 0.7em 1em;
-            margin-bottom: 1.5em;
-            font-weight: 500;
-            letter-spacing: 0.2px;
-            display: inline-block;
-            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
-            transition: all 0.3s ease;
-        }
-        .party-text:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+        .rsvp-info {
+            font-size: 1em;
+            color: var(--text);
+            background: transparent;
+            border: 1px solid var(--border);
+            padding: 20px;
+            margin-bottom: 30px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            line-height: 1.7;
         }
         form {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5em;
-            animation: fadeIn 1.8s 0.2s cubic-bezier(.39,.575,.565,1) both;
-        }
-        #optional-fields {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5em;
-            margin-top: 0.5em;
-            opacity: 0;
-            max-height: 0;
-            overflow: hidden;
-            transition: all 0.3s ease-in-out;
-        }
-        #optional-fields.show {
-            opacity: 1;
-            max-height: 2000px;
-            margin-top: 0.5em;
-        }
-        #optional-fields label {
-            margin-bottom: 0.3em;
-        }
-        #optional-fields input {
-            width: 100%;
-            box-sizing: border-box;
+            margin-top: 30px;
         }
         label {
-            font-size: 1em;
-            font-weight: 500;
-            margin-bottom: 0.3em;
             display: block;
-        }
-        .question-spacing {
-            margin-bottom: 2em;
-        }
-        input, select {
-            padding: 1.1em 1.1em;
-            border-radius: 10px;
-            border: 2px solid #e9ecef;
+            font-family: 'Crimson Text', serif;
             font-size: 1em;
-            background: #fff;
             color: var(--text);
-            outline: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            margin-bottom: 8px;
+            font-weight: 400;
         }
-        input:focus, select:focus {
-            border: 2px solid #ffd700;
-            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
-            transform: translateY(-1px);
-        }
-        button {
-            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
-            color: #333;
-            border: none;
-            padding: 1.1em;
-            border-radius: 10px;
-            font-size: 1.1em;
-            font-family: 'Montserrat', Arial, sans-serif;
-            font-weight: 700;
-            cursor: pointer;
-            margin-top: 0.5em;
-            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
+        input[type="text"], select {
             width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
+            padding: 12px 0;
+            border: none;
+            border-bottom: 1px solid var(--border);
+            background: transparent;
+            color: var(--text);
+            font-family: 'Crimson Text', serif;
+            font-size: 1em;
+            margin-bottom: 25px;
+            outline: none;
+            box-sizing: border-box;
         }
-        button:hover::before {
-            left: 100%;
-        }
-        button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
-        }
-        @media (max-width: 600px) {
-            .page-wrapper {
-                max-width: 100vw;
-                padding: 0;
-            }
-            .main-container {
-                margin: 0;
-            }
-            .container {
-                padding: 18px 2vw 18px 2vw;
-            }
-            h1 {
-                font-size: 1.3em;
-            }
-            body {
-                padding: 20px 0 200px 0;
-            }
-            button {
-                margin-bottom: 50px;
-            }
-            .modal-overlay {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(0, 0, 0, 0.7);
-                display: none;
-                justify-content: center;
-                align-items: center;
-                z-index: 10000;
-                animation: fadeIn 0.3s ease-in-out;
-                overflow-y: auto;
-            }
+        input[type="text"]:focus, select:focus {
+            border-bottom: 2px solid var(--border);
         }
         .status-options {
-            display: flex;
-            flex-direction: column;
-            gap: 0.7em;
-            margin-bottom: 0.5em;
+            margin-bottom: 25px;
         }
         .radio-label {
             display: flex;
             align-items: center;
+            margin-bottom: 12px;
+            font-family: 'Crimson Text', serif;
             font-size: 1em;
-            font-weight: 500;
-            gap: 0.7em;
             cursor: pointer;
-            padding: 12px;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-        .radio-label:hover {
-            background: #f8f9fa;
-            border-color: #ffd700;
         }
         .radio-label input[type="radio"] {
-            accent-color: #ffd700;
-            width: 1.1em;
-            height: 1.1em;
-            margin-right: 0.5em;
+            margin-right: 12px;
+            transform: scale(1.2);
+        }
+        button[type="submit"] {
+            width: 100%;
+            padding: 15px;
+            background: var(--text);
+            color: var(--accent);
+            border: 1px solid var(--border);
+            font-family: 'Crimson Text', serif;
+            font-size: 1em;
+            font-weight: 400;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+        button[type="submit"]:hover {
+            background: var(--accent);
+            color: var(--text);
         }
         .hidden {
             display: none;
@@ -260,72 +152,71 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.8);
             display: none;
             justify-content: center;
             align-items: center;
-            z-index: 10000;
-            animation: fadeIn 0.3s ease-in-out;
+            z-index: 1000;
         }
         .modal-content {
-            background: #fff;
-            border-radius: 12px;
-            padding: 2.5em;
-            max-width: 410px;
+            background: var(--accent);
+            padding: 40px;
+            border: 1px solid var(--border);
+            max-width: 400px;
             width: 90%;
             text-align: center;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-            animation: slideIn 0.4s ease-out;
-            margin: 0 auto;
+            animation: slideIn 0.3s ease-out;
         }
         .modal-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8em;
+            margin-bottom: 20px;
             color: var(--text);
-            margin-bottom: 1em;
-            font-size: 1.5em;
         }
         .modal-content p {
-            margin-bottom: 1em;
+            font-family: 'Crimson Text', serif;
+            font-size: 1em;
+            margin-bottom: 15px;
             line-height: 1.6;
         }
         .modal-close {
-            background: #ffd700;
-            color: #333;
-            border: none;
-            padding: 0.8em 1.5em;
-            border-radius: 8px;
+            background: var(--text);
+            color: var(--accent);
+            border: 1px solid var(--border);
+            padding: 12px 30px;
+            font-family: 'Crimson Text', serif;
             font-size: 1em;
             cursor: pointer;
-            margin-top: 1em;
+            margin-top: 20px;
             transition: all 0.3s ease;
         }
         .modal-close:hover {
-            background: #ffed4e;
-            transform: translateY(-2px);
+            background: var(--accent);
+            color: var(--text);
         }
         @keyframes slideIn {
             0% { opacity: 0; transform: translateY(-50px) scale(0.9); }
             100% { opacity: 1; transform: translateY(0) scale(1); }
         }
         .error {
-            border: 2px solid #dc3545 !important;
-            box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25) !important;
+            border-bottom: 2px solid #dc3545 !important;
         }
         .error-message {
             color: #dc3545;
-            font-size: 0.85em;
-            margin-top: 0.3em;
+            font-size: 0.9em;
+            margin-top: 5px;
             display: none;
-            text-align: left;
+            font-family: 'Crimson Text', serif;
         }
         .required {
             color: #dc3545;
         }
         label {
-            display: inline;
+            display: inline !important;
         }
         label + .required {
-            display: inline;
-            margin-left: 0;
+            display: inline !important;
+            margin-left: 0 !important;
         }
         #guestFields {
             opacity: 0;
@@ -337,6 +228,32 @@
             opacity: 1;
             max-height: 1000px;
         }
+        #optional-fields {
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease-in-out;
+        }
+        #optional-fields.show {
+            opacity: 1;
+            max-height: 1000px;
+        }
+        @media (max-width: 600px) {
+            .page-wrapper {
+                max-width: 100vw;
+                padding: 0;
+            }
+            .main-container {
+                margin: 0;
+                border: none;
+            }
+            .container {
+                padding: 30px 20px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+        }
     </style>
 </head>
 <body>
@@ -347,7 +264,7 @@
         <br>
         <div class="info">
                 <h2 data-translate="subtitle">Wir freuen uns sehr, diesen besonderen Tag mit dir zu teilen!</h2>
-                <p style="background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%); color: #000; padding: 1em; border-radius: 10px; box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3); margin-bottom: 1.5em;" data-translate="rsvpInfo">Hey! Bitte sag uns Bescheid, ob du dabei bist! Falls du mit Familie oder Partner kommst, gib uns einfach Bescheid mit wievielen Personen und deren Namen.</p>
+                <p class="rsvp-info" data-translate="rsvpInfo">Hey! Bitte sag uns Bescheid, ob du dabei bist! Falls du mit Familie oder Partner kommst, gib uns einfach Bescheid mit wievielen Personen und deren Namen.</p>
             </div>
             <form name="rsvp-form" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="showThankYouModal(event)">
                 <input type="hidden" name="form-name" value="rsvp-form" />
@@ -412,10 +329,10 @@
     <!-- Thank You Modal -->
     <div id="thankYouModal" class="modal-overlay">
         <div class="modal-content">
-            <h2>Danke für deine Antwort! 🎉</h2>
-            <p>Wir freuen uns sehr über deine Rückmeldung!</p>
+            <h2 data-translate="thankYouTitle">Danke für deine Antwort! 🎉</h2>
+            <p data-translate="thankYouMessage">Wir freuen uns sehr über deine Rückmeldung!</p>
             <p id="modalMessage"></p>
-            <button class="modal-close" onclick="closeThankYouModal()">Schließen</button>
+            <button class="modal-close" onclick="closeThankYouModal()" data-translate="closeButton">Schließen</button>
         </div>
     </div>
     
@@ -454,264 +371,94 @@
                 nameInput.type = 'text';
                 nameInput.name = `guestName${i}`;
                 nameInput.placeholder = `Name Person ${i}`;
-                nameInput.autocomplete = 'off';
-                nameInput.required = true;
+                nameInput.style.marginBottom = '15px';
+                nameInput.style.fontFamily = "'Crimson Text', serif";
+                nameInput.style.fontSize = '1em';
+                nameInput.style.padding = '12px 0';
+                nameInput.style.border = 'none';
+                nameInput.style.borderBottom = '1px solid #000';
+                nameInput.style.background = 'transparent';
+                nameInput.style.outline = 'none';
+                nameInput.style.width = '100%';
+                nameInput.style.boxSizing = 'border-box';
                 guestNamesContainer.appendChild(nameInput);
             }
         }
-        
-        function showError(element, message) {
-            element.classList.add('error');
-            
-            // Prüfen, ob bereits eine Fehlermeldung existiert
-            let errorMessage = element.parentNode.querySelector('.error-message');
-            if (!errorMessage) {
-                // Neue Fehlermeldung erstellen
-                errorMessage = document.createElement('div');
-                errorMessage.className = 'error-message';
-                errorMessage.style.display = 'block';
-                // Fehlermeldung nach dem Element einfügen
-                element.parentNode.insertBefore(errorMessage, element.nextSibling);
-            }
-            errorMessage.textContent = message;
-        }
-        
-        function clearErrors() {
-            // Alle Fehler-Styles entfernen
-            document.querySelectorAll('.error').forEach(element => {
-                element.classList.remove('error');
-            });
-            
-            // Alle Fehlermeldungen entfernen
-            document.querySelectorAll('.error-message').forEach(element => {
-                element.remove();
-            });
-        }
-        
-        function closeThankYouModal() {
-            const modal = document.getElementById('thankYouModal');
-            modal.style.display = 'none';
-            // Navigiere zur Infos-Seite
-            window.location.href = 'infos.html';
-        }
-        
-        // Modal schließen bei Klick außerhalb
-        document.getElementById('thankYouModal').addEventListener('click', function(event) {
-            if (event.target === this) {
-                closeThankYouModal();
-            }
-        });
-        
-        // Fehler beim Tippen entfernen
-        document.addEventListener('input', function(event) {
-            if (event.target.classList.contains('error')) {
-                event.target.classList.remove('error');
-                const errorMessage = event.target.parentNode.querySelector('.error-message');
-                if (errorMessage) {
-                    errorMessage.remove();
-                }
-            }
-        });
-        
-        // Fehler bei Radio-Button-Auswahl entfernen
-        document.addEventListener('change', function(event) {
-            if (event.target.name === 'status' && event.target.checked) {
-                const statusOptions = document.querySelector('.status-options');
-                if (statusOptions.classList.contains('error')) {
-                    statusOptions.classList.remove('error');
-                    const errorMessage = statusOptions.parentNode.querySelector('.error-message');
-                    if (errorMessage) {
-                        errorMessage.remove();
-                    }
-                }
-            }
-        });
 
         function showThankYouModal(event) {
-            // Verhindere das Standard-Formular-Verhalten
             event.preventDefault();
             
-            // Prüfen ob bereits abgeschickt wurde
-            const hasSubmitted = localStorage.getItem('rsvpSubmitted');
-            if (hasSubmitted) {
-                alert('Du hast bereits eine Antwort abgeschickt! Falls du deine Antwort ändern möchtest, kontaktiere uns bitte direkt.');
-                return;
-            }
-            
-            // Alle Fehler-Styles zurücksetzen
-            clearErrors();
-            
-            // Formular-Daten sammeln
             const form = event.target;
             const formData = new FormData(form);
-            
-            // Validierung
-            let hasErrors = false;
-            
-            // Name validieren
-            const nameInput = document.getElementById('name');
-            if (!nameInput.value.trim()) {
-                showError(nameInput, 'Bitte gib deinen Namen ein');
-                hasErrors = true;
-            }
-            
-            // Status validieren
-            const statusInputs = document.querySelectorAll('input[name="status"]');
-            let statusSelected = false;
-            statusInputs.forEach(input => {
-                if (input.checked) statusSelected = true;
-            });
-            if (!statusSelected) {
-                showError(statusInputs[0].closest('.status-options'), 'Bitte wähle aus, ob du kommst oder nicht');
-                hasErrors = true;
-            }
-            
-            // Wenn "Ja" ausgewählt ist, weitere Validierung
+            const name = formData.get('name');
             const status = formData.get('status');
-            if (status === 'Ja') {
-                // Guest Count ist jetzt optional, nur validieren wenn ausgefüllt
-                const guestCountSelect = document.getElementById('guestCount');
-                if (guestCountSelect.value) {
-                    // Namensfelder validieren nur wenn guestCount ausgefüllt ist
-                    const guestCount = parseInt(guestCountSelect.value);
-                    for (let i = 1; i <= guestCount; i++) {
-                        const nameInput = document.querySelector(`input[name="guestName${i}"]`);
-                        if (nameInput && !nameInput.value.trim()) {
-                            showError(nameInput, `Bitte gib den Namen für Person ${i} ein`);
-                            hasErrors = true;
-                        }
-                    }
-                }
-            }
             
-            // Wenn Fehler vorhanden sind, nicht weiter
-            if (hasErrors) {
-                return;
-            }
-            
-            // Namen für Personalisierung holen
-            const guestName = formData.get('name');
-            
-            // Dynamischen Text basierend auf der Antwort setzen
+            const modal = document.getElementById('thankYouModal');
             const modalMessage = document.getElementById('modalMessage');
             
             if (status === 'Ja') {
-                modalMessage.textContent = `Danke für deine Antwort. Wir freuen uns sehr über deine Rückmeldung, ${guestName}. Wir freuen uns riesig darauf, diesen besonderen Tag mit dir zu teilen!`;
+                modalMessage.textContent = `Danke für deine Antwort. Wir freuen uns sehr über deine Rückmeldung, ${name}. Wir freuen uns riesig darauf, diesen besonderen Tag mit dir zu teilen!`;
             } else {
-                modalMessage.textContent = `Danke für deine Antwort! Schade dass es nicht klappt, ${guestName}, wir werden trotzdem an diesem Tag an dich denken.`;
+                modalMessage.textContent = `Danke für deine Antwort! Schade dass es nicht klappt, ${name}, wir werden trotzdem an diesem Tag an dich denken.`;
             }
             
-            // Netlify Forms API verwenden
+            modal.style.display = 'flex';
+            
+            // Submit form to Netlify
             fetch('/', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
                 body: new URLSearchParams(formData).toString()
             }).then(() => {
-                // Als abgeschickt markieren
-                localStorage.setItem('rsvpSubmitted', 'true');
-                
-                // Formulardaten für spätere Anzeige speichern
-                const formDataObj = {};
-                formData.forEach((value, key) => {
-                    formDataObj[key] = value;
-                });
-                
-                // Gästennamen zusammenfassen
-                const guestNames = [];
-                for (let i = 1; i <= 10; i++) {
-                    const guestName = formData.get(`guestName${i}`);
-                    if (guestName && guestName.trim()) {
-                        guestNames.push(guestName.trim());
-                    }
-                }
-                if (guestNames.length > 0) {
-                    formDataObj.guestNames = guestNames.join(', ');
-                }
-                
-                console.log('Zu speichernde Daten:', formDataObj); // Debug
-                localStorage.setItem('rsvpData', JSON.stringify(formDataObj));
-                
-                // Modal anzeigen
-                const modal = document.getElementById('thankYouModal');
-                modal.style.display = 'flex';
-                
-                // Formular zurücksetzen
-                form.reset();
-                toggleOptionalFields();
-            }).catch(() => {
-                // Fallback: Modal trotzdem anzeigen
-                localStorage.setItem('rsvpSubmitted', 'true');
-                
-                // Formulardaten für spätere Anzeige speichern
-                const formDataObj = {};
-                formData.forEach((value, key) => {
-                    formDataObj[key] = value;
-                });
-                
-                // Gästennamen zusammenfassen
-                const guestNames = [];
-                for (let i = 1; i <= 10; i++) {
-                    const guestName = formData.get(`guestName${i}`);
-                    if (guestName && guestName.trim()) {
-                        guestNames.push(guestName.trim());
-                    }
-                }
-                if (guestNames.length > 0) {
-                    formDataObj.guestNames = guestNames.join(', ');
-                }
-                
-                console.log('Zu speichernde Daten:', formDataObj); // Debug
-                localStorage.setItem('rsvpData', JSON.stringify(formDataObj));
-                
-                const modal = document.getElementById('thankYouModal');
-                modal.style.display = 'flex';
-                
-                // Formular zurücksetzen
-                form.reset();
-                toggleOptionalFields();
+                console.log('Form submitted successfully');
+            }).catch((error) => {
+                console.error('Error submitting form:', error);
             });
         }
-        
-        // Prüfe beim Laden der Seite, ob bereits abgeschickt wurde
+
+        function closeThankYouModal() {
+            const modal = document.getElementById('thankYouModal');
+            modal.style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('thankYouModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeThankYouModal();
+            }
+        });
+
+        // Check if user has already submitted
         document.addEventListener('DOMContentLoaded', function() {
-            const hasSubmitted = localStorage.getItem('rsvpSubmitted');
-            if (hasSubmitted) {
-                // Formular und oberen Teil ausblenden
+            const submitted = localStorage.getItem('rsvpSubmitted');
+            if (submitted) {
                 const form = document.querySelector('form');
-                const info = document.querySelector('.info');
-                const h1 = document.querySelector('h1');
                 const container = document.querySelector('.container');
                 
                 form.style.display = 'none';
-                info.style.display = 'none';
-                h1.style.display = 'none';
                 
-                // Abgeschickte Informationen aus localStorage holen
-                const submittedData = JSON.parse(localStorage.getItem('rsvpData') || '{}');
-                console.log('Abgeschickte Daten:', submittedData); // Debug
-                
-                const submittedMessage = document.createElement('div');
-                submittedMessage.innerHTML = `
-                    <div style="text-align: center; padding: 2em; background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%); border-radius: 10px; color: #000; box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3); margin-bottom: 2em;">
-                        <h3 style="margin-bottom: 1em;">Danke für deine Antwort! 🎉</h3>
-                        <p>Falls du deine Antwort ändern möchtest, melde dich direkt bei uns. Wir freuen uns auf dich!</p>
-                    </div>
-                    <div style="background: #f8f9fa; border-radius: 10px; padding: 1.5em; border: 1px solid #e9ecef;">
-                        <h4 style="margin-bottom: 1em; color: #333;">Deine abgeschickten Informationen:</h4>
-                        <div style="text-align: left; line-height: 1.6;">
-                            <p><strong>Name:</strong> ${submittedData.name || 'Nicht angegeben'}</p>
-                            <p><strong>Kommst du zur Hochzeit?</strong> ${submittedData.status || 'Nicht angegeben'}</p>
-                            ${submittedData.guestCount ? `<p><strong>Wieviele Personen bringst du mit?</strong> ${submittedData.guestCount}</p>` : ''}
-                            ${submittedData.guestNames ? `<p><strong>Namen:</strong> ${submittedData.guestNames.split(', ').map((name, index) => `<br>${index + 1}. ${name.trim()}`).join('')}</p>` : ''}
-                            <p><strong>Allergien:</strong> ${submittedData.allergies || 'Nichts angegeben'}</p>
-                            <p><strong>Musikwunsch:</strong> ${submittedData.music || 'Nichts angegeben'}</p>
-                        </div>
+                const submittedDiv = document.createElement('div');
+                submittedDiv.innerHTML = `
+                    <div style="text-align: center; padding: 40px 0;">
+                        <h2 style="font-family: 'Playfair Display', serif; font-size: 1.8em; margin-bottom: 20px;">Danke für deine Antwort! 🎉</h2>
+                        <p style="font-family: 'Crimson Text', serif; font-size: 1em; margin-bottom: 15px; line-height: 1.6;">Falls du deine Antwort ändern möchtest, melde dich direkt bei uns. Wir freuen uns auf dich!</p>
                     </div>
                 `;
-                
-                container.appendChild(submittedMessage);
+                container.appendChild(submittedDiv);
             }
         });
+
+        // Mark as submitted when form is submitted
+        function markAsSubmitted() {
+            localStorage.setItem('rsvpSubmitted', 'true');
+        }
+
+        // Update the showThankYouModal function to mark as submitted
+        const originalShowThankYouModal = showThankYouModal;
+        showThankYouModal = function(event) {
+            originalShowThankYouModal(event);
+            markAsSubmitted();
+        };
     </script>
 </body>
-</html> 
+</html>
