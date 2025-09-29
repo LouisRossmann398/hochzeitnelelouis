@@ -71,8 +71,9 @@ const translations = {
         giftsText: '... und noch was: macht euch die Geschenkesuche nicht zur Qual, Geld ist für uns die beste Wahl!',
         
         // Bilder Seite
-        bilderTitle: 'Unsere Geschichte in Bildern',
-        bilderSubtitle: 'Ein kleiner Einblick in unsere gemeinsame Zeit',
+        bilderTitle: 'Bilder',
+        bilderSubtitle: 'Hier werden Bilder von unserer Hochzeitsfeier abrufbar sein',
+        comingSoon: 'COMING SOON',
         
         // Fehlermeldungen
         nameError: 'Bitte gib deinen Namen ein',
@@ -149,8 +150,9 @@ const translations = {
         giftsText: '... and one more thing: don\'t make gift hunting a torture, money is the best choice for us!',
         
         // Bilder Seite
-        bilderTitle: 'Our Story in Pictures',
-        bilderSubtitle: 'A small insight into our time together',
+        bilderTitle: 'Photos',
+        bilderSubtitle: 'Here will be photos from our wedding celebration',
+        comingSoon: 'COMING SOON',
         
         // Fehlermeldungen
         nameError: 'Please enter your name',
