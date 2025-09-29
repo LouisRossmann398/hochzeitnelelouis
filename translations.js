@@ -6,7 +6,7 @@ const translations = {
         // Navigation
         navTodo: 'Dein Todo',
         navInfos: 'Infos',
-        navBilder: 'Bilder',
+        navBilder: 'Fotos',
         
         // Index/RSVP Seite
         title: 'Wir heiraten!',
@@ -71,8 +71,8 @@ const translations = {
         giftsText: '... und noch was: macht euch die Geschenkesuche nicht zur Qual, Geld ist für uns die beste Wahl!',
         
         // Bilder Seite
-        bilderTitle: 'Bilder',
-        bilderSubtitle: 'Hier werden Bilder von unserer Hochzeitsfeier abrufbar sein',
+        bilderTitle: 'Fotos',
+        bilderSubtitle: 'Hier werden Fotos von unserer Hochzeitsfeier abrufbar sein',
         comingSoon: 'COMING SOON',
         
         // Fehlermeldungen
