@@ -11,7 +11,7 @@ const translations = {
         // Index/RSVP Seite
         title: 'Wir heiraten!',
         subtitle: 'Wir freuen uns sehr, diesen besonderen Tag mit dir zu teilen!',
-        rsvpInfo: 'Hey! Bitte sag uns Bescheid, ob du dabei bist! Falls du mit Familie oder Partner kommst, gib uns einfach Bescheid mit wievielen Personen und deren Namen.',
+        rsvpInfo: 'Hey! Bitte sag uns Bescheid, ob du dabei bist! Falls du mit deiner Familie oder deinem Partner kommst, gib uns einfach Bescheid mit wievielen Personen und deren Namen.',
         nameLabel: 'Dein vollständiger Name',
         statusLabel: 'Kommst du zur Hochzeit?',
         statusYes: 'Ja, ich komme!',
@@ -92,7 +92,7 @@ const translations = {
         // Index/RSVP Seite
         title: 'We are getting married!',
         subtitle: 'We are very excited to share this special day with you!',
-        rsvpInfo: 'Hey! Please let us know if you\'re coming! If you\'re coming with family or partner, just let us know how many people and their names.',
+        rsvpInfo: 'Hey! Please let us know if you\'re coming! If you\'re coming with your family or your partner, just let us know how many people and their names.',
         nameLabel: 'Your Full Name',
         statusLabel: 'Are you coming to the wedding?',
         statusYes: 'Yes, I\'m coming!',
