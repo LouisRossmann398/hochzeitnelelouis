@@ -104,7 +104,6 @@ const translations = {
         musicPlaceholder: 'Artist - Title',
         submitButton: 'Send Response',
         thankYouTitle: 'Thank you for your response! 🎉',
-        thankYouMessage: 'We are very happy about your feedback!',
         thankYouYes: 'Thank you for your response. We are very happy about your feedback, {name}. We are really looking forward to sharing this special day with you!',
         thankYouNo: 'Thank you for your response! Too bad it doesn\'t work out, {name}, we will still think of you on this day.',
         closeButton: 'Close',

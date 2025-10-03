@@ -335,7 +335,6 @@
     <div id="thankYouModal" class="modal-overlay">
         <div class="modal-content">
             <h2 data-translate="thankYouTitle">Danke für deine Antwort! 🎉</h2>
-            <p data-translate="thankYouMessage">Wir freuen uns sehr über deine Rückmeldung!</p>
             <p id="modalMessage"></p>
             <button class="modal-close" onclick="closeThankYouModal()" data-translate="closeButton">Schließen</button>
         </div>
@@ -401,11 +400,7 @@
             const modal = document.getElementById('thankYouModal');
             const modalMessage = document.getElementById('modalMessage');
             
-            if (status === 'Ja') {
-                modalMessage.textContent = `Danke für deine Antwort. Wir freuen uns sehr über deine Rückmeldung, ${name}. Wir freuen uns riesig darauf, diesen besonderen Tag mit dir zu teilen!`;
-            } else {
-                modalMessage.textContent = `Danke für deine Antwort! Schade dass es nicht klappt, ${name}, wir werden trotzdem an diesem Tag an dich denken.`;
-            }
+            modalMessage.textContent = '';
             
             modal.style.display = 'flex';
             
@@ -445,8 +440,7 @@
                 const submittedDiv = document.createElement('div');
                 submittedDiv.innerHTML = `
                     <div style="text-align: center; padding: 40px 0;">
-                        <h2 style="font-family: 'Noto Serif', serif; font-size: 1.8em; margin-bottom: 20px;">Danke für deine Antwort! 🎉</h2>
-                        <p style="font-family: 'Noto Serif', serif; font-size: 1em; margin-bottom: 15px; line-height: 1.8;">Falls du deine Antwort ändern möchtest, melde dich direkt bei uns. Wir freuen uns auf dich!</p>
+                        <h2 style="font-family: 'EB Garamond', serif; font-size: 1.8em; margin-bottom: 20px;">Danke für deine Antwort! 🎉</h2>
                     </div>
                 `;
                 container.appendChild(submittedDiv);
