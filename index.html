@@ -450,10 +450,14 @@
                 const submittedDiv = document.createElement('div');
                 submittedDiv.innerHTML = `
                     <div style="text-align: center; padding: 40px 0;">
-                        <h2 style="font-family: 'EB Garamond', serif; font-size: 1.8em; margin-bottom: 20px;">Danke für deine Antwort! 🎉</h2>
+                        <h2 style="font-family: 'EB Garamond', serif; font-size: 1.8em; margin-bottom: 20px;" data-translate="submittedInfo">Du hast uns bereits Rückmeldung gegeben - danke!</h2>
+                        <p style="font-family: 'EB Garamond', serif; font-size: 1em; line-height: 1.8; margin-bottom: 15px;" data-translate="submittedInfoSub">Falls du noch was ändern möchtest, ruf uns gerne einfach an oder schreib uns :)</p>
                     </div>
                 `;
                 container.appendChild(submittedDiv);
+                
+                // Übersetze die dynamisch hinzugefügten Elemente
+                translatePage();
             }
         });
 
