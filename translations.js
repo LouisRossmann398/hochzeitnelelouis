@@ -21,6 +21,8 @@ const translations = {
         guestNamesLabel: 'Namen aller Personen, die mitkommen:',
         allergiesLabel: 'Hast du/ihr Allergien oder Unverträglichkeiten beim Essen, die wir beachten sollen? (optional)',
         allergiesPlaceholder: 'z.B. Nüsse, Laktose, Gluten...',
+        messageLabel: 'Möchtest du uns sonst noch etwas mitteilen? (optional)',
+        messagePlaceholder: 'Deine Nachricht...',
         musicLabel: 'Falls du/ihr einen Musikwunsch für die Party am Abend habt, könnt ihr ihn hier eintragen (optional)',
         musicPlaceholder: 'Interpret - Titel',
         submitButton: 'Antwort absenden',
@@ -100,6 +102,8 @@ const translations = {
         guestNamesLabel: 'Names of all people coming:',
         allergiesLabel: 'Do you/they have any food allergies or intolerances we should be aware of? (optional)',
         allergiesPlaceholder: 'e.g. nuts, lactose, gluten...',
+        messageLabel: 'Would you like to tell us anything else? (optional)',
+        messagePlaceholder: 'Your message...',
         musicLabel: 'If you/they have a music request for the evening party, you can enter it here (optional)',
         musicPlaceholder: 'Artist - Title',
         submitButton: 'Send Response',
@@ -265,11 +269,6 @@ function addLanguageSwitchCSS() {
         }
         .language-switch:active {
             transform: translateY(0) scale(0.95);
-        }
-        @media (min-width: 768px) {
-            .language-switch {
-                display: none;
-            }
         }
         @media (max-width: 767px) {
             .language-switch {
