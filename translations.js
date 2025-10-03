@@ -11,7 +11,7 @@ const translations = {
         // Index/RSVP Seite
         title: 'Wir heiraten!',
         subtitle: 'Wir freuen uns sehr, diesen besonderen Tag mit dir zu teilen!',
-        rsvpInfo: 'Hey! Bitte sag uns Bescheid, ob du dabei bist! Falls du mit deiner Familie oder deinem Partner kommst, gib uns einfach Bescheid mit wievielen Personen und deren Namen.',
+        rsvpInfo: 'Hey! Bitte sag uns Bescheid, ob du dabei bist! Falls du mit deiner Familie oder deinem Partner kommst, gib uns einfach Bescheid mit wie vielen Personen und deren Namen.',
         nameLabel: 'Dein vollständiger Name',
         statusLabel: 'Kommst du zur Hochzeit?',
         statusYes: 'Ja, ich komme!',
