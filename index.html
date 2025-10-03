@@ -423,6 +423,8 @@
         function closeThankYouModal() {
             const modal = document.getElementById('thankYouModal');
             modal.style.display = 'none';
+            // Weiterleitung zur Infos-Seite
+            window.location.href = 'infos.html';
         }
 
         // Close modal when clicking outside
@@ -437,9 +439,13 @@
             const submitted = localStorage.getItem('rsvpSubmitted');
             if (submitted) {
                 const form = document.querySelector('form');
+                const rsvpInfo = document.querySelector('.rsvp-info');
                 const container = document.querySelector('.container');
                 
                 form.style.display = 'none';
+                if (rsvpInfo) {
+                    rsvpInfo.style.display = 'none';
+                }
                 
                 const submittedDiv = document.createElement('div');
                 submittedDiv.innerHTML = `
