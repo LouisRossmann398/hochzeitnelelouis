@@ -169,6 +169,9 @@ const translations = {
 function toggleLanguage() {
     currentLanguage = currentLanguage === 'de' ? 'en' : 'de';
     
+    // Sprache im localStorage speichern
+    localStorage.setItem('selectedLanguage', currentLanguage);
+    
     // Button-Text ändern
     const langDe = document.getElementById('lang-de');
     const langEn = document.getElementById('lang-en');
@@ -285,7 +288,22 @@ function addLanguageSwitchCSS() {
 
 // Initialisierung beim Laden der Seite
 document.addEventListener('DOMContentLoaded', function() {
+    // Gespeicherte Sprache aus localStorage laden
+    const savedLanguage = localStorage.getItem('selectedLanguage');
+    if (savedLanguage) {
+        currentLanguage = savedLanguage;
+    }
+    
     addLanguageSwitchCSS();
     createLanguageSwitch();
+    
+    // Button-Text entsprechend der aktuellen Sprache setzen
+    const langDe = document.getElementById('lang-de');
+    const langEn = document.getElementById('lang-en');
+    if (langDe && langEn) {
+        langDe.style.display = currentLanguage === 'de' ? 'inline' : 'none';
+        langEn.style.display = currentLanguage === 'en' ? 'inline' : 'none';
+    }
+    
     translatePage();
 }); 
