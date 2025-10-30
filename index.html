@@ -310,7 +310,7 @@
                     </select>
 
                     <div id="guestFields">
-                        <label for="guestNames" data-translate="guestNamesLabel">Namen aller Personen, die mitkommen:</label>
+                        <label for="guestNames" data-translate="guestNamesLabel">Namen aller Personen, die mitkommen:</label><span class="required" data-translate="required">*</span>
                         <div id="guestNamesContainer"></div>
                     </div>
 
@@ -376,6 +376,7 @@
                 nameInput.type = 'text';
                 nameInput.name = `guestName${i}`;
                 nameInput.placeholder = `Name Person ${i}`;
+                nameInput.required = true; // Pflichtfeld wenn Gäste angegeben werden
                 nameInput.style.marginBottom = '15px';
                 nameInput.style.fontFamily = "'Noto Serif', serif";
                 nameInput.style.fontSize = '1em';
@@ -397,6 +398,35 @@
             const formData = new FormData(form);
             const name = formData.get('name');
             const status = formData.get('status');
+            const guestCount = formData.get('guestCount');
+            
+            // Validierung: Wenn guestCount > 0, müssen alle Gästennamen ausgefüllt sein
+            if (status === 'Ja' && guestCount && parseInt(guestCount) > 0) {
+                let allNamesFilled = true;
+                // Entferne vorherige Fehler-Markierungen
+                document.querySelectorAll('input[name^="guestName"]').forEach(input => {
+                    input.classList.remove('error');
+                    input.style.borderBottom = '1px solid #000';
+                });
+                
+                for (let i = 1; i <= parseInt(guestCount); i++) {
+                    const guestName = formData.get(`guestName${i}`);
+                    if (!guestName || guestName.trim() === '') {
+                        allNamesFilled = false;
+                        // Markiere das leere Feld als Fehler
+                        const nameInput = document.querySelector(`input[name="guestName${i}"]`);
+                        if (nameInput) {
+                            nameInput.classList.add('error');
+                            nameInput.style.borderBottom = '2px solid #dc3545';
+                        }
+                    }
+                }
+                
+                if (!allNamesFilled) {
+                    alert('Bitte gib die Namen aller Personen ein, die mitkommen.');
+                    return;
+                }
+            }
             
             const modal = document.getElementById('thankYouModal');
             const modalMessage = document.getElementById('modalMessage');

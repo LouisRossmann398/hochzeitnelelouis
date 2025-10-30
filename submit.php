@@ -12,14 +12,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    // Sammle alle Gästennamen
+    // Sammle alle Gästennamen und validiere sie
     $guestNames = [];
-    if ($status === 'Ja' && $guestCount !== '') {
+    if ($status === 'Ja' && $guestCount !== '' && intval($guestCount) > 0) {
+        // Validierung: Wenn Gäste angegeben werden, müssen alle Namen ausgefüllt sein
         for ($i = 1; $i <= intval($guestCount); $i++) {
             $guestName = trim($_POST["guestName$i"] ?? '');
-            if ($guestName !== '') {
-                $guestNames[] = $guestName;
+            if ($guestName === '') {
+                echo '<p>Bitte gib die Namen aller Personen ein, die mitkommen.</p>';
+                exit;
             }
+            $guestNames[] = $guestName;
         }
     }
     $guestNamesString = implode(', ', $guestNames);
