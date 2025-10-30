@@ -14,7 +14,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Sammle alle Gästennamen und validiere sie
     $guestNames = [];
-    if ($status === 'Ja' && $guestCount !== '' && intval($guestCount) > 0) {
+    
+    // Prüfe zuerst, ob ein kombiniertes 'guestNames' Feld vorhanden ist (von Netlify Forms)
+    if (isset($_POST['guestNames']) && trim($_POST['guestNames']) !== '') {
+        $guestNamesString = trim($_POST['guestNames']);
+    } elseif ($status === 'Ja' && $guestCount !== '' && intval($guestCount) > 0) {
+        // Fallback: Sammle einzelne Gästennamen-Felder
         // Validierung: Wenn Gäste angegeben werden, müssen alle Namen ausgefüllt sein
         for ($i = 1; $i <= intval($guestCount); $i++) {
             $guestName = trim($_POST["guestName$i"] ?? '');
@@ -24,8 +29,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
             $guestNames[] = $guestName;
         }
+        $guestNamesString = implode(', ', $guestNames);
+    } else {
+        $guestNamesString = '';
     }
-    $guestNamesString = implode(', ', $guestNames);
 
     $row = [$date, $name, $status, $guestCount, $guestNamesString, $allergies, $music];
     $file = fopen('responses.csv', 'a');

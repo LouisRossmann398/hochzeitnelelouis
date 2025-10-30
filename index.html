@@ -312,6 +312,8 @@
                     <div id="guestFields">
                         <label for="guestNames" data-translate="guestNamesLabel">Namen aller Personen, die mitkommen:</label><span class="required" data-translate="required">*</span>
                         <div id="guestNamesContainer"></div>
+                        <!-- Verstecktes Feld für alle Gästennamen (wird per JavaScript befüllt) -->
+                        <input type="hidden" name="guestNames" id="guestNamesHidden" value="">
                     </div>
 
                     <div>
@@ -365,6 +367,11 @@
             if (guestCount === '') {
                 guestFieldsDiv.classList.remove('show');
                 guestNamesContainer.innerHTML = ''; // Clear previous names
+                // Setze verstecktes Feld zurück
+                const hiddenField = document.getElementById('guestNamesHidden');
+                if (hiddenField) {
+                    hiddenField.value = '';
+                }
                 return;
             }
 
@@ -387,8 +394,31 @@
                 nameInput.style.outline = 'none';
                 nameInput.style.width = '100%';
                 nameInput.style.boxSizing = 'border-box';
+                // Event Listener hinzufügen, um verstecktes Feld zu aktualisieren
+                nameInput.addEventListener('input', updateHiddenGuestNamesField);
                 guestNamesContainer.appendChild(nameInput);
             }
+            updateHiddenGuestNamesField(); // Initiale Aktualisierung
+        }
+
+        function updateHiddenGuestNamesField() {
+            const guestCountSelect = document.getElementById('guestCount');
+            const hiddenField = document.getElementById('guestNamesHidden');
+            if (!hiddenField || !guestCountSelect || guestCountSelect.value === '') {
+                return;
+            }
+            
+            const guestCount = parseInt(guestCountSelect.value);
+            const allGuestNames = [];
+            
+            for (let i = 1; i <= guestCount; i++) {
+                const nameInput = document.querySelector(`input[name="guestName${i}"]`);
+                if (nameInput && nameInput.value.trim() !== '') {
+                    allGuestNames.push(nameInput.value.trim());
+                }
+            }
+            
+            hiddenField.value = allGuestNames.join(', ');
         }
 
         function showThankYouModal(event) {
@@ -438,6 +468,25 @@
             }
             
             modal.style.display = 'flex';
+            
+            // Sammle alle Gästennamen in ein verstecktes Feld für Netlify
+            if (status === 'Ja' && guestCount && parseInt(guestCount) > 0) {
+                const allGuestNames = [];
+                for (let i = 1; i <= parseInt(guestCount); i++) {
+                    const guestName = formData.get(`guestName${i}`);
+                    if (guestName && guestName.trim() !== '') {
+                        allGuestNames.push(guestName.trim());
+                    }
+                }
+                // Füge ein verstecktes Feld mit allen Gästennamen hinzu
+                const guestNamesString = allGuestNames.join(', ');
+                formData.set('guestNames', guestNamesString);
+                // Aktualisiere auch das versteckte HTML-Feld
+                const hiddenField = document.getElementById('guestNamesHidden');
+                if (hiddenField) {
+                    hiddenField.value = guestNamesString;
+                }
+            }
             
             // Submit form to Netlify
             fetch('/', {
