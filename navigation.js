@@ -1,7 +1,7 @@
 // Navigation Script
 function createNavigation() {
     // Verbesserte Seitenerkennung
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const currentPage = window.location.pathname.split('/').pop() || 'infos.html';
     const currentPageClean = currentPage.toLowerCase();
     
     const navigation = `

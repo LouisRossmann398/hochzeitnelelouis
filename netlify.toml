@@ -3,10 +3,15 @@
 
 [[redirects]]
   from = "/"
-  to = "/index.html"
-  status = 200
+  to = "/infos.html"
+  status = 302
+
+[[redirects]]
+  from = "/index.html"
+  to = "/infos.html"
+  status = 302
 
 [[redirects]]
   from = "/thank-you.html"
   to = "/thank-you.html"
-  status = 200 
+  status = 200
