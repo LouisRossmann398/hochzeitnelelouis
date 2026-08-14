@@ -61,22 +61,54 @@
             font-family: 'EB Garamond', serif;
             font-size: 1em;
             text-align: center;
-            margin-bottom: 2em;
+            margin: 0 0 1.5em 0;
             font-style: normal;
             line-height: 1.8;
+            color: #333;
         }
-        .bilder-grid {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
-            margin-top: 2em; margin-bottom: 1.5em;
+        .upload-box {
+            margin-top: 2em;
+            text-align: center;
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5em 1em;
         }
-        .bilder-placeholder {
-            background: transparent; border: 1px solid var(--border);
-            height: 90px; display: flex;
-            align-items: center; justify-content: center;
-            color: var(--text); font-size: 1em;
+        .upload-icon {
+            font-size: 3em;
+            margin-bottom: 0.4em;
+            opacity: 0.85;
+        }
+        .upload-button {
+            display: inline-block;
+            background: #fff;
+            color: #333;
+            text-decoration: none;
+            padding: 0.65em 1.4em;
+            border-radius: 8px;
+            font-weight: 600;
+            border: 2px solid #000;
+            transition: all 0.3s ease;
             font-family: 'EB Garamond', serif;
+            font-size: 1.05em;
+            margin-top: 0.5em;
         }
-        .hint { text-align: center; color: var(--text); font-size: 1em; margin-top: 2em; font-family: 'Noto Serif', serif; line-height: 1.8; }
+        .upload-button:hover {
+            background: #f8f9fa;
+        }
+        .upload-steps {
+            margin: 1.5em 0 0 0;
+            padding: 0;
+            list-style: none;
+            text-align: left;
+            font-size: 0.95em;
+            color: #555;
+            line-height: 1.7;
+        }
+        .upload-steps li {
+            margin-bottom: 0.6em;
+            padding-left: 0.2em;
+        }
         @media (max-width: 600px) {
             .page-wrapper {
                 max-width: 100vw;
@@ -101,10 +133,17 @@
             <div class="container">
                 <h1 data-translate="bilderTitle">Fotos</h1>
                 <div style="text-align: center; margin: 10px 0;">🧡</div>
-                <div style="text-align: center; margin: 3em 0;">
-                    <div style="font-size: 4em; margin-bottom: 0.5em; opacity: 0.3;">📸</div>
-                    <p data-translate="bilderSubtitle" style="font-size: 1.2em; font-style: normal; color: #666; margin: 0;">Hier werden Fotos von unserer Hochzeitsfeier abrufbar sein</p>
-                    <div style="margin-top: 2em; font-size: 0.9em; color: #999; letter-spacing: 2px;" data-translate="comingSoon">COMING SOON</div>
+                <p data-translate="bilderSubtitle">Habt ihr am Hochzeitstag schöne Momente eingefangen? Teilt eure Fotos gerne mit uns – wir freuen uns riesig!</p>
+                <div class="upload-box">
+                    <div class="upload-icon">📸</div>
+                    <a href="https://daero-my.sharepoint.com/:f:/g/personal/lr_daero_de/IgDDprMDR-HdQbmRQzdHBciNAQaLMcvZrzmDyKuGdbADI7s?e=V7L1K7" target="_blank" rel="noopener noreferrer" class="upload-button">
+                        📤 <span data-translate="bilderUploadButton">Fotos hochladen</span>
+                    </a>
+                    <ul class="upload-steps">
+                        <li data-translate="bilderStep1">1. Auf den Button tippen und den Upload-Ordner öffnen</li>
+                        <li data-translate="bilderStep2">2. Eure Fotos auswählen und hochladen</li>
+                        <li data-translate="bilderStep3">3. Fertig – danke, dass ihr den Tag mit uns festhaltet!</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -112,4 +151,4 @@
     <script src="navigation.js"></script>
     <script src="translations.js"></script>
 </body>
-</html> 
+</html>

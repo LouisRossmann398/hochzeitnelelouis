@@ -79,8 +79,11 @@ const translations = {
         
         // Bilder Seite
         bilderTitle: 'Fotos',
-        bilderSubtitle: 'Hier werden Fotos von unserer Hochzeitsfeier abrufbar sein',
-        comingSoon: 'COMING SOON',
+        bilderSubtitle: 'Habt ihr am Hochzeitstag schöne Momente eingefangen? Teilt eure Fotos gerne mit uns – wir freuen uns riesig!',
+        bilderUploadButton: 'Fotos hochladen',
+        bilderStep1: '1. Auf den Button tippen und den Upload-Ordner öffnen',
+        bilderStep2: '2. Eure Fotos auswählen und hochladen',
+        bilderStep3: '3. Fertig – danke, dass ihr den Tag mit uns festhaltet!',
         
         // Fehlermeldungen
         nameError: 'Bitte gib deinen Namen ein',
@@ -164,8 +167,11 @@ const translations = {
         
         // Bilder Seite
         bilderTitle: 'Photos',
-        bilderSubtitle: 'Here will be photos from our wedding celebration',
-        comingSoon: 'COMING SOON',
+        bilderSubtitle: 'Did you capture beautiful moments on the wedding day? Feel free to share your photos with us – we would love to see them!',
+        bilderUploadButton: 'Upload photos',
+        bilderStep1: '1. Tap the button to open the upload folder',
+        bilderStep2: '2. Select your photos and upload them',
+        bilderStep3: '3. Done – thank you for capturing this day with us!',
         
         // Fehlermeldungen
         nameError: 'Please enter your name',
