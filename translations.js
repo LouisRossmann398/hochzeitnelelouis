@@ -69,8 +69,6 @@ const translations = {
         weatherLabel: 'Wetter für die Hochzeit',
         weatherLoading: 'Lade Wetterdaten...',
         weatherPlaceholder: '🌤️ Wettervorhersage wird ab 15.08.2026 hier angezeigt',
-        accommodationLabel: 'Übernachtungsmöglichkeiten',
-        hotelDescription: '⭐ Biohotel mit Tradition • 1,7 km von der Location',
         giftsLabel: 'Geschenke',
         giftsText: '... und noch was: macht euch die Geschenkesuche nicht zur Qual, Geld ist für uns die beste Wahl!',
         
@@ -151,8 +149,6 @@ const translations = {
         weatherLabel: 'Weather for the Wedding',
         weatherLoading: 'Loading weather data...',
         weatherPlaceholder: '🌤️ Weather forecast will be displayed here from 15.08.2026',
-        accommodationLabel: 'Accommodation',
-        hotelDescription: '⭐ Bio hotel with tradition • 1.7 km from the venue',
         giftsLabel: 'Gifts',
         giftsText: '... and one more thing: don\'t make gift hunting a torture, money is the best choice for us!',
         
