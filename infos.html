@@ -93,18 +93,16 @@
             <br>
             <ul class="infos-list">
                 <li>
-                    <div id="countdown" style="margin-bottom: 1em; text-align: center; background: transparent; border: 1px solid #000; border-radius: 8px; padding: 0.7em;">
-                        <div style="font-size: 0.9em; font-weight: 600; margin-bottom: 0.3em; color: #333;" data-translate="countdownTitle">Countdown zur Hochzeit</div>
-                        <div id="countdown-timer" style="font-size: 1.1em; font-weight: 700; color: #333;">
-                            <span id="days">--</span> <span data-translate="days">Tage</span>, 
-                            <span id="hours">--</span> <span data-translate="hours">Stunden</span>, 
-                            <span id="minutes">--</span> <span data-translate="minutes">Minuten</span>, 
-                            <span id="seconds">--</span> <span data-translate="seconds">Sekunden</span>
-                        </div>
+                    <div id="countdown" style="margin-bottom: 1em; text-align: center; background: transparent; border: 1px solid #000; border-radius: 8px; padding: 1em 0.7em;">
+                        <div id="countdown-timer" style="font-size: 1.15em; font-weight: 700; color: #333; line-height: 1.5;"></div>
                     </div>
                     <strong data-translate="dateLabel">Datum</strong> <span>22.08.2026</span>
                 </li>
                 <li><strong data-translate="locationLabel">Ort</strong> <span>Gut Thurnsberg, Thurnsberg 17, 85402 Kranzberg</span>
+                    <div style="margin-top: 0.8em;">
+                        <strong data-translate="travelLabel">Anreise</strong>
+                        <span data-translate="travelText">Parkplätze gibt es direkt vor Ort. Mit öffentlichen Verkehrsmitteln kommt man leider nicht hin – bitte plant die Anreise mit dem Auto.</span>
+                    </div>
                     <div style="margin-top: 0.5em;">
                         <a href="https://www.google.com/maps/dir//Gut+Thurnsberg,+Thurnsberg+17,+85402+Kranzberg" target="_blank" style="display: inline-block; background: #fff; color: #333; text-decoration: none; padding: 0.5em 1em; border-radius: 8px; font-weight: 500; border: 2px solid #000; transition: all 0.3s ease;">
                             ➡️ <span data-translate="routeText">Route</span>
@@ -122,51 +120,51 @@
                             <div style="position: absolute; left: 10px; top: 0; bottom: 0; width: 2px; background: #000; border-radius: 1px;"></div>
                             
                             <!-- Timeline Items -->
-                            <div style="position: relative; margin-bottom: 15px;">
+                            <div style="position: relative; margin-bottom: 18px;">
                                 <div style="position: absolute; left: -15px; top: 5px; width: 12px; height: 12px; background: #000; border-radius: 50%; border: 2px solid #fff;"></div>
                                 <div style="margin-left: 10px;">
-                                    <div style="font-weight: 600; color: #333; font-size: 0.95em;">14:00 Uhr</div>
-                                    <div style="color: #666; font-size: 0.85em;" data-translate="arrivalText">Ankunft</div>
+                                    <div style="font-weight: 600; color: #333; font-size: 0.95em;">14:00 – <span data-translate="arrivalText">Ankommen</span></div>
+                                    <div style="color: #666; font-size: 0.85em; margin-top: 0.15em;" data-translate="arrivalDesc">🧡 Ankommen, Platz suchen &amp; erste Getränke</div>
                                 </div>
                             </div>
                             
-                            <div style="position: relative; margin-bottom: 15px;">
+                            <div style="position: relative; margin-bottom: 18px;">
                                 <div style="position: absolute; left: -15px; top: 5px; width: 12px; height: 12px; background: #000; border-radius: 50%; border: 2px solid #fff;"></div>
                                 <div style="margin-left: 10px;">
-                                    <div style="font-weight: 600; color: #333; font-size: 0.95em;">14:30 Uhr</div>
-                                    <div style="color: #666; font-size: 0.85em;" data-translate="ceremonyText">Freie Trauung</div>
+                                    <div style="font-weight: 600; color: #333; font-size: 0.95em;">14:30 – <span data-translate="ceremonyText">Freie Trauung</span></div>
+                                    <div style="color: #666; font-size: 0.85em; margin-top: 0.15em;" data-translate="ceremonyDesc">💍 Jetzt wird's ernst!</div>
                                 </div>
                             </div>
                             
-                            <div style="position: relative; margin-bottom: 15px;">
+                            <div style="position: relative; margin-bottom: 18px;">
                                 <div style="position: absolute; left: -15px; top: 5px; width: 12px; height: 12px; background: #000; border-radius: 50%; border: 2px solid #fff;"></div>
                                 <div style="margin-left: 10px;">
-                                    <div style="font-weight: 600; color: #333; font-size: 0.95em;">15:15 Uhr</div>
-                                    <div style="color: #666; font-size: 0.85em;" data-translate="coffeeText">Anstoßen und Kaffee &amp; Kuchen</div>
+                                    <div style="font-weight: 600; color: #333; font-size: 0.95em;">15:15 – <span data-translate="coffeeText">Kaffee &amp; Kuchen</span></div>
+                                    <div style="color: #666; font-size: 0.85em; margin-top: 0.15em;" data-translate="coffeeDesc">☕ Anstoßen, Kuchen und gemütlich zusammenkommen</div>
                                 </div>
                             </div>
                             
-                            <div style="position: relative; margin-bottom: 15px;">
+                            <div style="position: relative; margin-bottom: 18px;">
                                 <div style="position: absolute; left: -15px; top: 5px; width: 12px; height: 12px; background: #000; border-radius: 50%; border: 2px solid #fff;"></div>
                                 <div style="margin-left: 10px;">
-                                    <div style="font-weight: 600; color: #333; font-size: 0.95em;">18:15 Uhr</div>
-                                    <div style="color: #666; font-size: 0.85em;" data-translate="groupPhotoText">Gruppenfoto</div>
+                                    <div style="font-weight: 600; color: #333; font-size: 0.95em;">18:15 – <span data-translate="groupPhotoText">Gruppenfoto</span></div>
+                                    <div style="color: #666; font-size: 0.85em; margin-top: 0.15em;" data-translate="groupPhotoDesc">📸 Alle einmal zusammen – bitte nicht verschwinden!</div>
                                 </div>
                             </div>
                             
-                            <div style="position: relative; margin-bottom: 15px;">
+                            <div style="position: relative; margin-bottom: 18px;">
                                 <div style="position: absolute; left: -15px; top: 5px; width: 12px; height: 12px; background: #000; border-radius: 50%; border: 2px solid #fff;"></div>
                                 <div style="margin-left: 10px;">
-                                    <div style="font-weight: 600; color: #333; font-size: 0.95em;">18:30 Uhr</div>
-                                    <div style="color: #666; font-size: 0.85em;" data-translate="dinnerText">Abendessen</div>
+                                    <div style="font-weight: 600; color: #333; font-size: 0.95em;">18:30 – <span data-translate="dinnerText">Abendessen</span></div>
+                                    <div style="color: #666; font-size: 0.85em; margin-top: 0.15em;" data-translate="dinnerDesc">🍽️ Zeit für gutes Essen und Reden</div>
                                 </div>
                             </div>
                             
                             <div style="position: relative; margin-bottom: 5px;">
                                 <div style="position: absolute; left: -15px; top: 5px; width: 12px; height: 12px; background: #000; border-radius: 50%; border: 2px solid #fff;"></div>
                                 <div style="margin-left: 10px;">
-                                    <div style="font-weight: 600; color: #333; font-size: 0.95em;">22:30 Uhr</div>
-                                    <div style="color: #666; font-size: 0.85em;" data-translate="partyText">Party</div>
+                                    <div style="font-weight: 600; color: #333; font-size: 0.95em;">22:30 – <span data-translate="partyText">Party</span></div>
+                                    <div style="color: #666; font-size: 0.85em; margin-top: 0.15em;" data-translate="partyDesc">🕺 Jetzt darf getanzt werden!</div>
                                 </div>
                             </div>
                         </div>
@@ -222,29 +220,33 @@
     <script>
         // Countdown zur Hochzeit
         function updateCountdown() {
-            const weddingDate = new Date('2026-08-22T14:00:00').getTime();
-            const now = new Date().getTime();
-            const distance = weddingDate - now;
+            const weddingDay = new Date(2026, 7, 22);
+            const today = new Date();
+            weddingDay.setHours(0, 0, 0, 0);
+            today.setHours(0, 0, 0, 0);
+            const diffDays = Math.round((weddingDay - today) / (1000 * 60 * 60 * 24));
 
-            if (distance < 0) {
-                document.getElementById('countdown-timer').innerHTML = '<span style="color: #28a745;">🎉 Die Hochzeit ist heute! 🎉</span>';
-                return;
+            const lang = (typeof currentLanguage !== 'undefined' && translations[currentLanguage])
+                ? currentLanguage
+                : 'de';
+            const t = translations[lang];
+            const timerEl = document.getElementById('countdown-timer');
+            if (!timerEl) return;
+
+            if (diffDays > 0) {
+                const dayWord = diffDays === 1 ? t.daySingular : t.days;
+                timerEl.innerHTML = '💍 ' + t.countdownBefore.replace('{days}', diffDays).replace('{dayWord}', dayWord);
+            } else if (diffDays === 0) {
+                timerEl.innerHTML = '🥂 ' + t.countdownToday;
+            } else {
+                timerEl.innerHTML = '❤️ ' + t.countdownAfter
+                    + '<br><span style="font-size: 0.85em; font-weight: 400; display: inline-block; margin-top: 0.35em;">'
+                    + t.countdownThanks + '</span>';
             }
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            document.getElementById('days').textContent = days;
-            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
         }
 
-        // Countdown sofort starten und jede Sekunde aktualisieren
         updateCountdown();
-        setInterval(updateCountdown, 1000);
+        setInterval(updateCountdown, 60 * 60 * 1000);
 
         // Wetter-Widget
         async function loadWeather() {
