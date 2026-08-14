@@ -79,7 +79,7 @@ const translations = {
         
         // Bilder Seite
         bilderTitle: 'Fotos',
-        bilderSubtitle: 'Habt ihr am Hochzeitstag schöne Momente eingefangen? Teilt eure Fotos gerne mit uns – wir freuen uns riesig!',
+        bilderSubtitle: 'Habt ihr schöne Momente eingefangen? Teilt eure Fotos gerne mit uns – wir freuen uns riesig!',
         bilderUploadButton: 'Fotos hochladen',
         
         // Fehlermeldungen
@@ -164,7 +164,7 @@ const translations = {
         
         // Bilder Seite
         bilderTitle: 'Photos',
-        bilderSubtitle: 'Did you capture beautiful moments on the wedding day? Feel free to share your photos with us – we would love to see them!',
+        bilderSubtitle: 'Did you capture beautiful moments? Feel free to share your photos with us – we would love to see them!',
         bilderUploadButton: 'Upload photos',
         
         // Fehlermeldungen
