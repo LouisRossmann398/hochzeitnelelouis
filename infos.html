@@ -93,8 +93,9 @@
             <br>
             <ul class="infos-list">
                 <li>
-                    <div id="countdown" style="margin-bottom: 1em; text-align: center; background: transparent; border: 1px solid #000; border-radius: 8px; padding: 1em 0.7em;">
-                        <div id="countdown-timer" style="font-size: 1.15em; font-weight: 700; color: #333; line-height: 1.5;"></div>
+                    <div id="countdown" style="margin-bottom: 1em; text-align: center; background: transparent; border: 1px solid #000; border-radius: 8px; padding: 0.9em 0.7em;">
+                        <div id="countdown-title" style="font-size: 0.9em; font-weight: 600; margin-bottom: 0.35em; color: #333;" data-translate="countdownTitle">Countdown zur Hochzeit</div>
+                        <div id="countdown-timer" style="font-size: 1.1em; font-weight: 700; color: #333; line-height: 1.5;"></div>
                     </div>
                     <strong data-translate="dateLabel">Datum</strong> <span>22.08.2026</span>
                 </li>
@@ -214,10 +215,11 @@
     <script>
         // Countdown zur Hochzeit
         function updateCountdown() {
+            const weddingStart = new Date(2026, 7, 22, 14, 0, 0);
+            const now = new Date();
+
             const weddingDay = new Date(2026, 7, 22);
-            const today = new Date();
-            weddingDay.setHours(0, 0, 0, 0);
-            today.setHours(0, 0, 0, 0);
+            const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
             const diffDays = Math.round((weddingDay - today) / (1000 * 60 * 60 * 24));
 
             const lang = (typeof currentLanguage !== 'undefined' && translations[currentLanguage])
@@ -225,22 +227,34 @@
                 : 'de';
             const t = translations[lang];
             const timerEl = document.getElementById('countdown-timer');
+            const titleEl = document.getElementById('countdown-title');
             if (!timerEl) return;
 
             if (diffDays > 0) {
-                const dayWord = diffDays === 1 ? t.daySingular : t.days;
-                timerEl.innerHTML = '💍 ' + t.countdownBefore.replace('{days}', diffDays).replace('{dayWord}', dayWord);
+                if (titleEl) titleEl.style.display = 'block';
+
+                const distance = weddingStart - now;
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                const dayWord = days === 1 ? t.daySingular : t.days;
+
+                timerEl.innerHTML = days + ' ' + dayWord + ', '
+                    + hours.toString().padStart(2, '0') + ' ' + t.hours + ', '
+                    + minutes.toString().padStart(2, '0') + ' ' + t.minutes + ', '
+                    + seconds.toString().padStart(2, '0') + ' ' + t.seconds;
             } else if (diffDays === 0) {
+                if (titleEl) titleEl.style.display = 'none';
                 timerEl.innerHTML = '🥂 ' + t.countdownToday;
             } else {
-                timerEl.innerHTML = '❤️ ' + t.countdownAfter
-                    + '<br><span style="font-size: 0.85em; font-weight: 400; display: inline-block; margin-top: 0.35em;">'
-                    + t.countdownThanks + '</span>';
+                if (titleEl) titleEl.style.display = 'none';
+                timerEl.innerHTML = '❤️ ' + t.countdownThanks;
             }
         }
 
         updateCountdown();
-        setInterval(updateCountdown, 60 * 60 * 1000);
+        setInterval(updateCountdown, 1000);
 
         // Wetter-Widget
         async function loadWeather() {

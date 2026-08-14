@@ -47,9 +47,7 @@ const translations = {
         // Infos Seite
         infosTitle: 'Alle Infos für den Hochzeitstag',
         countdownTitle: 'Countdown zur Hochzeit',
-        countdownBefore: 'Noch {days} {dayWord}!',
         countdownToday: 'HEUTE IST ES SOWEIT!',
-        countdownAfter: 'Wir sind verheiratet!',
         countdownThanks: 'Danke, dass ihr diesen Tag mit uns gefeiert habt.',
         days: 'Tage',
         daySingular: 'Tag',
@@ -134,9 +132,7 @@ const translations = {
         // Infos Seite
         infosTitle: 'All Information for the Wedding Day',
         countdownTitle: 'Countdown to the Wedding',
-        countdownBefore: '{days} {dayWord} to go!',
         countdownToday: 'TODAY IS THE DAY!',
-        countdownAfter: 'We are married!',
         countdownThanks: 'Thank you for celebrating this day with us.',
         days: 'Days',
         daySingular: 'Day',
